@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cl6ckv2w8ao01"]
+
+[ext_resource type="Script" path="res://components/enemy_path_2d.gd" id="1_xj3u0"]
+
+[sub_resource type="Curve2D" id="Curve2D_si7o5"]
+
+[node name="EnemyPath2D" type="Path2D"]
+curve = SubResource("Curve2D_si7o5")
+script = ExtResource("1_xj3u0")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+rotates = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D"]

@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://cqr8xa4t7cvxe"]
+
+[ext_resource type="Texture2D" uid="uid://davdd3bj52aus" path="res://assets/Retro-Lines-16x16/Enemies.png" id="1_3o350"]
+[ext_resource type="Script" path="res://enemies/enemy.gd" id="1_dr6fo"]
+[ext_resource type="PackedScene" uid="uid://cl6ckv2w8ao01" path="res://components/enemy_path_2d.tscn" id="1_r00ur"]
+[ext_resource type="PackedScene" uid="uid://cg1i6wnm3s4w1" path="res://components/jump_on_part.tscn" id="2_pg3jk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j06gj"]
+atlas = ExtResource("1_3o350")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xmxe"]
+atlas = ExtResource("1_3o350")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kc1ky"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j06gj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xmxe")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b56po"]
+size = Vector2(10, 5)
+
+[node name="EnemyChicken" type="Node2D" groups=["Enemy"]]
+script = ExtResource("1_dr6fo")
+metadata/_edit_group_ = true
+
+[node name="EnemyPath2D" parent="." node_paths=PackedStringArray("remote_node") instance=ExtResource("1_r00ur")]
+remote_node = NodePath("../Body")
+speed = 0.3
+
+[node name="Body" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Body"]
+sprite_frames = SubResource("SpriteFrames_kc1ky")
+animation = &"idle"
+
+[node name="JumpOnPart" parent="Body" instance=ExtResource("2_pg3jk")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/JumpOnPart"]
+position = Vector2(-1, -0.5)
+shape = SubResource("RectangleShape2D_b56po")

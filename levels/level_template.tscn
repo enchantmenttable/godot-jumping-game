@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqdy3f111vh6f"]
+
+[ext_resource type="PackedScene" uid="uid://c8wi3emhc27qq" path="res://components/game_manager.tscn" id="1_6hnao"]
+[ext_resource type="PackedScene" uid="uid://bjbc8bs5s25eb" path="res://player/player.tscn" id="2_fecro"]
+[ext_resource type="PackedScene" uid="uid://ddtrfjvgu1w74" path="res://tiles/tile_map.tscn" id="3_01js0"]
+[ext_resource type="PackedScene" uid="uid://cdc53tunbbrki" path="res://tiles/tile_map_8x_8.tscn" id="4_mka40"]
+
+[node name="LevelTemplate" type="Node2D"]
+
+[node name="GameManager" parent="." instance=ExtResource("1_6hnao")]
+
+[node name="Player" parent="." instance=ExtResource("2_fecro")]
+
+[node name="Tiles" type="Node2D" parent="."]
+
+[node name="TileMap" parent="Tiles" instance=ExtResource("3_01js0")]
+
+[node name="TileMap8x8" parent="Tiles" instance=ExtResource("4_mka40")]
+
+[node name="Enemies" type="Node2D" parent="."]

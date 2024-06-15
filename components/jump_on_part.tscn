@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cg1i6wnm3s4w1"]
+
+[ext_resource type="Script" path="res://components/jump_on_part.gd" id="1_n014b"]
+
+[node name="JumpOnPart" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_n014b")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,4 @@
+extends Node
+
+signal enemy_gets_jumped
+signal player_forbidden_touch
