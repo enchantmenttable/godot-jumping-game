@@ -1,11 +1,12 @@
 extends CharacterBody2D
 
 @export var speed = 90
-@export var jump_strength = 150
+@export var jump_strength = 170
 @export var mass = 1
 @export var acceleration = .25
 @export var friction = .25
 @export var roll_speed = 180
+@export var dead_touch : bool = true # testing purpose
 
 @onready var facing_marker = $FacingMarker
 @onready var anim = $AnimatedSprite2D
@@ -70,7 +71,7 @@ func _normal_state(delta):
 	if jumped_once and not is_on_floor():
 		on_air_time += delta
 
-	if is_on_floor() and jumped_once and on_air_time > 0.1:
+	if is_on_floor() and jumped_once and on_air_time > 0.1 and dead_touch:
 		Messenger.player_forbidden_touch.emit()
 
 	if not jumping and not ray_cast_2d.is_colliding():

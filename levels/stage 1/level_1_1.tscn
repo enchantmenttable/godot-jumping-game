@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://db04fe7eo4ss2"]
+[gd_scene load_steps=6 format=3 uid="uid://db04fe7eo4ss2"]
 
 [ext_resource type="PackedScene" uid="uid://c8wi3emhc27qq" path="res://components/game_manager.tscn" id="1_fbwic"]
 [ext_resource type="PackedScene" uid="uid://bjbc8bs5s25eb" path="res://player/player.tscn" id="2_f0m0x"]
 [ext_resource type="PackedScene" uid="uid://dlvq2hrgw63gu" path="res://levels/stage 1/level_1_2.tscn" id="2_wiqbf"]
-[ext_resource type="PackedScene" uid="uid://ddtrfjvgu1w74" path="res://tiles/tile_map.tscn" id="3_dkiup"]
 [ext_resource type="PackedScene" uid="uid://cdc53tunbbrki" path="res://tiles/tile_map_8x_8.tscn" id="4_iudt3"]
 [ext_resource type="PackedScene" uid="uid://cqr8xa4t7cvxe" path="res://enemies/enemy_chicken.tscn" id="5_ecskv"]
 
@@ -16,8 +15,6 @@ next_level = ExtResource("2_wiqbf")
 position = Vector2(88, 80)
 
 [node name="Tiles" type="Node2D" parent="."]
-
-[node name="TileMap" parent="Tiles" instance=ExtResource("3_dkiup")]
 
 [node name="TileMap8x8" parent="Tiles" instance=ExtResource("4_iudt3")]
 layer_0/tile_data = PackedInt32Array(655360, 131072, 3, 720896, 131072, 3, 786432, 131072, 3, 851968, 131072, 3, 917504, 131072, 3, 983040, 131072, 3, 1048576, 131072, 3, 1114112, 131072, 3, 1179648, 131072, 3, 1245184, 131072, 3, 655381, 0, 3, 720917, 0, 3, 786453, 0, 3, 851989, 0, 3, 917525, 0, 3, 983061, 0, 3, 1048597, 0, 3, 1114133, 0, 3, 1179669, 0, 3, 1245205, 0, 3, 1310720, 131072, 3, 720905, 196608, 1, 720906, 262144, 1, 720907, 262144, 1, 720908, 327680, 1, 1310741, 0, 3, 458753, 131072, 3, 393218, 131072, 3, 327683, 131072, 3, 262148, 131072, 3, 196613, 131072, 3, 131078, 65536, 4, 131079, 65536, 4, 131080, 65536, 4, 131081, 65536, 4, 131082, 65536, 4, 131083, 65536, 4, 131084, 65536, 4, 131085, 65536, 4, 131086, 65536, 4, 131087, 65536, 4, 196624, 0, 4, 262161, 0, 4, 327698, 0, 4, 393235, 0, 4, 458772, 0, 4, 1507329, 131072, 2, 1572866, 131072, 2, 1638403, 131072, 2, 1703940, 131072, 2, 1769477, 131072, 2, 1835014, 65536, 2, 1835015, 65536, 2, 1835016, 65536, 2, 1835017, 65536, 2, 1835018, 65536, 2, 1835019, 65536, 2, 1835020, 65536, 2, 1835021, 65536, 2, 1835022, 65536, 2, 1835023, 65536, 2, 1769488, 0, 2, 1703953, 0, 2, 1638418, 0, 2, 1572883, 0, 2, 1507348, 0, 2, 1376277, 0, 3, 1441813, 0, 3, 524309, 0, 3, 589845, 0, 3, 1376256, 131072, 3, 1441792, 131072, 3, 524288, 131072, 3, 589824, 131072, 3)

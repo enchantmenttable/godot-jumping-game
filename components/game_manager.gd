@@ -15,8 +15,14 @@ func _ready():
 	if not final_level:
 		next_level_path = next_level.resource_path
 
+func _process(_float): # testing purpose
+	if Input.is_action_just_pressed("restart"):
+		get_tree().call_deferred("reload_current_scene")
+	if Input.is_action_just_pressed("quit_game"):
+		get_tree().quit()
+
 func _player_forbidden_touch():
-	get_parent().get_tree().reload_current_scene()
+	get_tree().call_deferred("reload_current_scene")
 
 func _enemy_gets_jumped():
 	enemy_count -= 1

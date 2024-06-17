@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://6ldypm2cpdmt"]
+
+[ext_resource type="Texture2D" uid="uid://bdneh2hbbqsp7" path="res://icon.svg" id="1_2b4jg"]
+[ext_resource type="Script" path="res://UI/main_menu.gd" id="1_snvnk"]
+[ext_resource type="FontFile" uid="uid://d5mt76lp83ts" path="res://assets/monogram.ttf" id="1_xvs2a"]
+[ext_resource type="PackedScene" uid="uid://db04fe7eo4ss2" path="res://levels/stage 1/level_1_1.tscn" id="2_3vpwp"]
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_snvnk")
+starting_level = ExtResource("2_3vpwp")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.0
+offset_top = -76.5
+offset_right = 73.0
+offset_bottom = 76.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_2b4jg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Start" type="Button" parent="Control/VBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_xvs2a")
+text = "Start"
+
+[node name="Options" type="Button" parent="Control/VBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_xvs2a")
+text = "Options"
+
+[node name="Credits" type="Button" parent="Control/VBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_xvs2a")
+text = "Credits"
+
+[connection signal="pressed" from="Control/VBoxContainer/VBoxContainer/HBoxContainer2/Start" to="." method="_on_start_pressed"]

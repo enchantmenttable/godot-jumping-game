@@ -1,30 +1,44 @@
-[gd_scene load_steps=9 format=3 uid="uid://cqr8xa4t7cvxe"]
+[gd_scene load_steps=11 format=3 uid="uid://cqr8xa4t7cvxe"]
 
 [ext_resource type="Texture2D" uid="uid://davdd3bj52aus" path="res://assets/Retro-Lines-16x16/Enemies.png" id="1_3o350"]
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_dr6fo"]
 [ext_resource type="PackedScene" uid="uid://cl6ckv2w8ao01" path="res://components/enemy_path_2d.tscn" id="1_r00ur"]
 [ext_resource type="PackedScene" uid="uid://cg1i6wnm3s4w1" path="res://components/jump_on_part.tscn" id="2_pg3jk"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_j06gj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5blt7"]
 atlas = ExtResource("1_3o350")
-region = Rect2(0, 32, 16, 16)
+region = Rect2(48, 32, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4xmxe"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_kic8j"]
 atlas = ExtResource("1_3o350")
-region = Rect2(16, 32, 16, 16)
+region = Rect2(64, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqikh"]
+atlas = ExtResource("1_3o350")
+region = Rect2(80, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xabo"]
+atlas = ExtResource("1_3o350")
+region = Rect2(96, 32, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kc1ky"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_j06gj")
+"texture": SubResource("AtlasTexture_5blt7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4xmxe")
+"texture": SubResource("AtlasTexture_kic8j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lqikh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8xabo")
 }],
 "loop": true,
-"name": &"idle",
-"speed": 5.0
+"name": &"new_animation",
+"speed": 3.5
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b56po"]
@@ -36,13 +50,15 @@ metadata/_edit_group_ = true
 
 [node name="EnemyPath2D" parent="." node_paths=PackedStringArray("remote_node") instance=ExtResource("1_r00ur")]
 remote_node = NodePath("../Body")
-speed = 0.3
+speed = 0.22
 
 [node name="Body" type="Node2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Body"]
 sprite_frames = SubResource("SpriteFrames_kc1ky")
-animation = &"idle"
+animation = &"new_animation"
+autoplay = "new_animation"
+frame_progress = 0.100185
 
 [node name="JumpOnPart" parent="Body" instance=ExtResource("2_pg3jk")]
 

@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://by4p4v1ug45iu" path="res://assets/tile 1/tile.png" id="3_0l7ap"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hpx5u"]
-size = Vector2(10, 14)
+size = Vector2(7, 10)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hpb1o"]
 atlas = ExtResource("3_0l7ap")
@@ -96,7 +96,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ob5fv"]
-size = Vector2(11, 14)
+size = Vector2(8, 12)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 3
@@ -107,7 +107,7 @@ metadata/_edit_group_ = true
 [node name="ReceiveBox" parent="." instance=ExtResource("2_h0l2k")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ReceiveBox"]
-position = Vector2(-1, 1)
+position = Vector2(-0.5, 3)
 shape = SubResource("RectangleShape2D_hpx5u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -120,9 +120,10 @@ frame_progress = 1.0
 [node name="IdleTimer" type="Timer" parent="AnimatedSprite2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 1)
+visible = false
+position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_ob5fv")
-debug_color = Color(0.469342, 0.47834, 0.901846, 0.42)
+debug_color = Color(0.814116, 0.248768, 0.803025, 0.42)
 
 [node name="FacingMarker" type="Marker2D" parent="."]
 position = Vector2(3, 0)

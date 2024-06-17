@@ -1,0 +1,85 @@
+[gd_scene load_steps=12 format=3 uid="uid://b2t5onkom3fdb"]
+
+[ext_resource type="PackedScene" uid="uid://c8wi3emhc27qq" path="res://components/game_manager.tscn" id="1_6dwoc"]
+[ext_resource type="PackedScene" uid="uid://bjbc8bs5s25eb" path="res://player/player.tscn" id="2_ef8r5"]
+[ext_resource type="PackedScene" uid="uid://crvkyy0wxv7u0" path="res://levels/stage 1/level_1_4.tscn" id="2_w1c42"]
+[ext_resource type="PackedScene" uid="uid://cdc53tunbbrki" path="res://tiles/tile_map_8x_8.tscn" id="3_e4va6"]
+[ext_resource type="PackedScene" uid="uid://cqr8xa4t7cvxe" path="res://enemies/enemy_chicken.tscn" id="4_cntxa"]
+[ext_resource type="PackedScene" uid="uid://444ax6bccbaf" path="res://components/dont_touch_zone.tscn" id="5_nh6ij"]
+
+[sub_resource type="Curve2D" id="Curve2D_gb7kg"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -104, 0, 0, 0, 0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_alppm"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -80, 0, 0, 0, 0, 0, 24, 0, 0, 0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_07bsb"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -64, 0, 0, 0, 0, 0, 40, 0, 0, 0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nr1v8"]
+size = Vector2(34, 8.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e4763"]
+size = Vector2(79, 9)
+
+[node name="Level1-3" type="Node2D"]
+
+[node name="GameManager" parent="." instance=ExtResource("1_6dwoc")]
+next_level = ExtResource("2_w1c42")
+
+[node name="Player" parent="." instance=ExtResource("2_ef8r5")]
+position = Vector2(24, 112)
+
+[node name="Tiles" type="Node2D" parent="."]
+
+[node name="TileMap8x8" parent="Tiles" instance=ExtResource("3_e4va6")]
+position = Vector2(0, 32)
+layer_0/tile_data = PackedInt32Array(720898, 262144, 1, 720899, 262144, 1, 720897, 262144, 1, 327692, 262144, 1, 327693, 262144, 1, 327694, 262144, 1, 327691, 262144, 1, 720896, 262144, 1, 655360, 262144, 1, 589824, 262144, 1, 524288, 262144, 1, 458752, 262144, 1, 393216, 262144, 1, 327680, 262144, 1, 262144, 262144, 1, 196608, 262144, 1, 131072, 262144, 1, 65536, 262144, 1, 65557, 262144, 1, 131093, 262144, 1, 196629, 262144, 1, 262165, 262144, 1, 327701, 262144, 1, 393237, 262144, 1, 458773, 262144, 1, 524309, 262144, 1, 589845, 262144, 1, 655381, 262144, 1, 720917, 262144, 1, 786453, 262144, 1, 851989, 262144, 1, 917525, 262144, 1, 983061, 262144, 1, 1048597, 262144, 1, 1114133, 262144, 1, 1179669, 262144, 1, 1245205, 262144, 1, 1310741, 262144, 1, 1376277, 262144, 1, 1441813, 262144, 1, 1507349, 262144, 1, 1572885, 262144, 1, 720900, 262144, 1, 786436, 262144, 1, 851972, 262144, 1, 917508, 262144, 1, 983044, 262144, 1, 1048580, 262144, 1, 1114116, 262144, 1, 1179652, 262144, 1, 1245188, 262144, 1, 1310724, 262144, 1, 1376260, 262144, 1, 1572883, 262144, 1, 1572884, 262144, 1, 1572882, 262144, 1, 1572881, 262144, 1, 1572880, 262144, 1, 1572879, 262144, 1, 1572878, 262144, 1, 1572877, 262144, 1, 1572876, 262144, 1, 1572875, 262144, 1, 1572874, 262144, 1, 1572873, 262144, 1, 1572872, 262144, 1, 1572871, 262144, 1, 1572870, 262144, 1, 1572869, 262144, 1, 1572868, 262144, 1, 1507332, 262144, 1, 1441796, 262144, 1, -65536, 262144, 1, -65535, 262144, 1, -65534, 262144, 1, -65533, 262144, 1, -65532, 262144, 1, -65531, 262144, 1, -65530, 262144, 1, -65529, 262144, 1, -65528, 262144, 1, -65527, 262144, 1, -65526, 262144, 1, -65525, 262144, 1, -65524, 262144, 1, -65523, 262144, 1, -65522, 262144, 1, -65521, 262144, 1, -65520, 262144, 1, -65519, 262144, 1, -65518, 262144, 1, -65517, 262144, 1, -65516, 262144, 1, -65515, 262144, 1, 0, 262144, 1, 21, 262144, 1)
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="EnemyChicken4" parent="Enemies" instance=ExtResource("4_cntxa")]
+position = Vector2(104, 56)
+
+[node name="EnemyChicken2" parent="Enemies" instance=ExtResource("4_cntxa")]
+position = Vector2(72, 200)
+
+[node name="EnemyPath2D" parent="Enemies/EnemyChicken2" index="0"]
+curve = SubResource("Curve2D_gb7kg")
+
+[node name="EnemyChicken" parent="Enemies" instance=ExtResource("4_cntxa")]
+position = Vector2(104, 176)
+
+[node name="EnemyPath2D" parent="Enemies/EnemyChicken" index="0"]
+curve = SubResource("Curve2D_alppm")
+
+[node name="EnemyChicken3" parent="Enemies" instance=ExtResource("4_cntxa")]
+position = Vector2(136, 160)
+
+[node name="EnemyPath2D" parent="Enemies/EnemyChicken3" index="0"]
+curve = SubResource("Curve2D_07bsb")
+
+[node name="DontTouchZone" parent="." instance=ExtResource("5_nh6ij")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DontTouchZone"]
+position = Vector2(104, 75.75)
+shape = SubResource("RectangleShape2D_nr1v8")
+debug_color = Color(0.611162, 0.367092, 0.988501, 0.42)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DontTouchZone"]
+position = Vector2(103.5, 27.5)
+shape = SubResource("RectangleShape2D_e4763")
+debug_color = Color(0.725553, 0.341411, 0.839154, 0.42)
+
+[editable path="Enemies/EnemyChicken2"]
+[editable path="Enemies/EnemyChicken"]
+[editable path="Enemies/EnemyChicken3"]
