@@ -1,6 +1,56 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8wi3emhc27qq"]
+[gd_scene load_steps=13 format=3 uid="uid://c8wi3emhc27qq"]
 
 [ext_resource type="Script" path="res://components/game_manager.gd" id="1_hdbsq"]
+[ext_resource type="AudioStream" uid="uid://t7ren381aera" path="res://assets/sound/cartoon-jump-neg40.wav" id="2_dgiqe"]
+[ext_resource type="AudioStream" uid="uid://ca6fh737e3m6w" path="res://assets/sound/cartoon-jump-neg30.wav" id="3_hjmck"]
+[ext_resource type="AudioStream" uid="uid://cxere6edxelnw" path="res://assets/sound/cartoon-jump-neg20.wav" id="4_7ta1o"]
+[ext_resource type="AudioStream" uid="uid://bnu3tcvg8sewc" path="res://assets/sound/cartoon-jump-neg10.wav" id="5_rtjcl"]
+[ext_resource type="AudioStream" uid="uid://cll1tui6pt0mh" path="res://assets/sound/cartoon-jump.mp3" id="6_8s8ns"]
+[ext_resource type="AudioStream" uid="uid://b5uhgln46cbis" path="res://assets/sound/cartoon-jump-pos10.wav" id="7_655j4"]
+[ext_resource type="AudioStream" uid="uid://buwh3ac0jwhca" path="res://assets/sound/cartoon-jump-pos20.wav" id="8_8ngus"]
+[ext_resource type="AudioStream" uid="uid://chbkkyyyoqbp2" path="res://assets/sound/cartoon-jump-pos30.wav" id="9_lwkmn"]
+[ext_resource type="AudioStream" uid="uid://dq8knjdmw1whj" path="res://assets/sound/good-6081.mp3" id="10_vtsin"]
+[ext_resource type="AudioStream" uid="uid://brpfd82p5pv11" path="res://assets/sound/yay-92370.mp3" id="11_xfwil"]
+[ext_resource type="AudioStream" uid="uid://busut0vh3pqrq" path="res://assets/sound/game-over-arcade-6435.mp3" id="11_ypg6f"]
 
 [node name="GameManager" type="Node2D"]
 script = ExtResource("1_hdbsq")
+
+[node name="SoundHolder" type="Node2D" parent="."]
+
+[node name="EnemyGotJumped-neg40" type="AudioStreamPlayer2D" parent="SoundHolder"]
+stream = ExtResource("2_dgiqe")
+
+[node name="EnemyGotJumped-neg30" type="AudioStreamPlayer2D" parent="SoundHolder"]
+stream = ExtResource("3_hjmck")
+
+[node name="EnemyGotJumped-neg20" type="AudioStreamPlayer2D" parent="SoundHolder"]
+stream = ExtResource("4_7ta1o")
+
+[node name="EnemyGotJumped-neg10" type="AudioStreamPlayer2D" parent="SoundHolder"]
+stream = ExtResource("5_rtjcl")
+
+[node name="EnemyGotJumped" type="AudioStreamPlayer2D" parent="SoundHolder"]
+stream = ExtResource("6_8s8ns")
+
+[node name="EnemyGotJumped-pos10" type="AudioStreamPlayer2D" parent="SoundHolder"]
+stream = ExtResource("7_655j4")
+
+[node name="EnemyGotJumped-pos20" type="AudioStreamPlayer2D" parent="SoundHolder"]
+stream = ExtResource("8_8ngus")
+
+[node name="EnemyGotJumped-pos30" type="AudioStreamPlayer2D" parent="SoundHolder"]
+stream = ExtResource("9_lwkmn")
+
+[node name="WinLevel" type="AudioStreamPlayer2D" parent="SoundHolder"]
+stream = ExtResource("10_vtsin")
+
+[node name="WinStage" type="AudioStreamPlayer2D" parent="SoundHolder"]
+stream = ExtResource("11_xfwil")
+
+[node name="Die" type="AudioStreamPlayer2D" parent="SoundHolder"]
+stream = ExtResource("11_ypg6f")
+
+[connection signal="finished" from="SoundHolder/WinLevel" to="." method="_on_win_level_finished"]
+[connection signal="finished" from="SoundHolder/WinStage" to="." method="_on_win_stage_finished"]
+[connection signal="finished" from="SoundHolder/Die" to="." method="_on_die_finished"]

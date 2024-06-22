@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyrk8kha1rnlp"]
+
+[ext_resource type="PackedScene" uid="uid://c8wi3emhc27qq" path="res://components/game_manager.tscn" id="1_8qiau"]
+[ext_resource type="PackedScene" uid="uid://bjbc8bs5s25eb" path="res://player/player.tscn" id="2_qhkje"]
+[ext_resource type="PackedScene" uid="uid://cdc53tunbbrki" path="res://tiles/tile_map_8x_8.tscn" id="3_0vh67"]
+[ext_resource type="PackedScene" uid="uid://cqr8xa4t7cvxe" path="res://enemies/enemy_chicken.tscn" id="4_1pkc5"]
+
+[node name="Level2-5" type="Node2D"]
+
+[node name="GameManager" parent="." instance=ExtResource("1_8qiau")]
+position = Vector2(40, 40)
+
+[node name="Player" parent="." instance=ExtResource("2_qhkje")]
+position = Vector2(40, 40)
+
+[node name="Tiles" type="Node2D" parent="."]
+position = Vector2(40, 40)
+
+[node name="TilemapPlatform8x8" parent="Tiles" instance=ExtResource("3_0vh67")]
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="EnemyChicken3" parent="Enemies" instance=ExtResource("4_1pkc5")]
+position = Vector2(72, 24)
+
+[node name="EnemyChicken2" parent="Enemies" instance=ExtResource("4_1pkc5")]
+position = Vector2(24, 24)
+
+[node name="EnemyChicken" parent="Enemies" instance=ExtResource("4_1pkc5")]
+position = Vector2(32, 104)

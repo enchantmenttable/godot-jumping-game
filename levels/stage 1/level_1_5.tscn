@@ -1,3 +1,38 @@
-[gd_scene format=3 uid="uid://de7ur83a5lqs5"]
+[gd_scene load_steps=6 format=3 uid="uid://baxl8la82nrs3"]
+
+[ext_resource type="PackedScene" uid="uid://c8wi3emhc27qq" path="res://components/game_manager.tscn" id="1_m00ay"]
+[ext_resource type="PackedScene" uid="uid://bjbc8bs5s25eb" path="res://player/player.tscn" id="2_jyocm"]
+[ext_resource type="PackedScene" uid="uid://de36sr4tq7gq2" path="res://levels/stage 1/level_1_6.tscn" id="2_qoeem"]
+[ext_resource type="PackedScene" uid="uid://cdc53tunbbrki" path="res://tiles/tile_map_8x_8.tscn" id="3_2deh2"]
+[ext_resource type="PackedScene" uid="uid://cqr8xa4t7cvxe" path="res://enemies/enemy_chicken.tscn" id="4_qr7b7"]
 
 [node name="Level1-5" type="Node2D"]
+
+[node name="GameManager" parent="." instance=ExtResource("1_m00ay")]
+next_level = ExtResource("2_qoeem")
+
+[node name="Player" parent="." instance=ExtResource("2_jyocm")]
+position = Vector2(112, 72)
+
+[node name="Tiles" type="Node2D" parent="."]
+
+[node name="TilemapPlatform8x8" parent="Tiles" instance=ExtResource("3_2deh2")]
+position = Vector2(8, 8)
+layer_0/tile_data = PackedInt32Array(1703939, 262144, 1, 1703940, 262144, 1, 1703941, 262144, 1, 1703942, 262144, 1, 1703943, 262144, 1, 1703944, 262144, 1, 1703945, 262144, 1, 917519, 262144, 1, 983055, 262144, 1, 1048591, 262144, 1, 1114127, 262144, 1, 1179663, 262144, 1, 1245199, 262144, 1, 1310735, 262144, 1, 851983, 262144, 1, 655363, 262144, 1, 720899, 262144, 1, 786435, 262144, 1, 851971, 262144, 1, 917507, 262144, 1, 983043, 262144, 1, 1048579, 262144, 1, 1114115, 262144, 1, 1179651, 262144, 1, 1245187, 262144, 1, 1310723, 262144, 1, 1376259, 262144, 1, 1441795, 262144, 1, 1507331, 262144, 1, 1572867, 262144, 1, 1638403, 262144, 1, 589836, 262144, 1, 589835, 262144, 1, 655370, 262144, 1, 720906, 262144, 1, 851984, 262144, 1, 851985, 262144, 1, 851986, 262144, 1, 589828, 262144, 1, 524293, 262144, 1, 458758, 262144, 1, 393223, 262144, 1, 327688, 262144, 1, 262153, 262144, 1, 196618, 262144, 1, 131083, 262144, 1, 196620, 262144, 1, 262157, 262144, 1, 327694, 262144, 1, 393231, 262144, 1, 458768, 262144, 1, 524305, 262144, 1, 589842, 262144, 1, 655378, 262144, 1, 720914, 262144, 1, 786450, 262144, 1, 1376270, 262144, 1, 1441805, 262144, 1, 1507340, 262144, 1, 1572875, 262144, 1, 1638410, 262144, 1, 655371, 262144, 1)
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="EnemyChicken" parent="Enemies" instance=ExtResource("4_qr7b7")]
+position = Vector2(112, 136)
+
+[node name="EnemyChicken2" parent="Enemies" instance=ExtResource("4_qr7b7")]
+position = Vector2(64, 192)
+
+[node name="EnemyChicken5" parent="Enemies" instance=ExtResource("4_qr7b7")]
+position = Vector2(128, 96)
+
+[node name="EnemyChicken3" parent="Enemies" instance=ExtResource("4_qr7b7")]
+position = Vector2(64, 152)
+
+[node name="EnemyChicken4" parent="Enemies" instance=ExtResource("4_qr7b7")]
+position = Vector2(64, 112)

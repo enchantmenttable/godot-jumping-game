@@ -1,9 +1,8 @@
 extends Node2D
-#
-#var id
-#
-#func _ready():
-	#id = get_instance_id()
+
 func got_jumped():
-	Messenger.enemy_gets_jumped.emit()
+	Messenger.enemy_gets_jumped.emit("Enemy-Normal")
+	_die()
+
+func _die():
 	queue_free()

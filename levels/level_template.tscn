@@ -12,6 +12,6 @@
 
 [node name="Tiles" type="Node2D" parent="."]
 
-[node name="TileMap8x8" parent="Tiles" instance=ExtResource("4_mka40")]
+[node name="TilemapPlatform8x8" parent="Tiles" instance=ExtResource("4_mka40")]
 
 [node name="Enemies" type="Node2D" parent="."]

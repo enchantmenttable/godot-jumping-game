@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://bgc2wr2chbdew"]
+
+[ext_resource type="PackedScene" uid="uid://c8wi3emhc27qq" path="res://components/game_manager.tscn" id="1_jf5mj"]
+[ext_resource type="PackedScene" uid="uid://bjbc8bs5s25eb" path="res://player/player.tscn" id="2_mll1o"]
+[ext_resource type="PackedScene" uid="uid://47q1pbn5dvjd" path="res://levels/stage 2/level_2_2.tscn" id="2_qghs3"]
+[ext_resource type="PackedScene" uid="uid://cdc53tunbbrki" path="res://tiles/tile_map_8x_8.tscn" id="3_lumfh"]
+[ext_resource type="PackedScene" uid="uid://ybpattqa3fw7" path="res://enemies/enemy_ghost.tscn" id="4_fc830"]
+[ext_resource type="PackedScene" uid="uid://cqr8xa4t7cvxe" path="res://enemies/enemy_chicken.tscn" id="5_cytc8"]
+
+[node name="Level2-1" type="Node2D"]
+
+[node name="GameManager" parent="." instance=ExtResource("1_jf5mj")]
+next_level = ExtResource("2_qghs3")
+
+[node name="Player" parent="." instance=ExtResource("2_mll1o")]
+position = Vector2(94, 108)
+
+[node name="Tiles" type="Node2D" parent="."]
+
+[node name="TilemapPlatform8x8" parent="Tiles" instance=ExtResource("3_lumfh")]
+position = Vector2(-8, 0)
+layer_0/tile_data = PackedInt32Array(917514, 196608, 1, 917515, 262144, 1, 917516, 262144, 1, 917517, 327680, 1, 851979, 393216, 3, 983043, 262144, 1, 1048579, 262144, 1, 1114115, 262144, 1, 1179651, 262144, 1, 1245187, 262144, 1, 1245188, 262144, 1, 1245189, 262144, 1, 1245190, 262144, 1, 1245191, 262144, 1, 1310727, 262144, 1, 1376263, 262144, 1, 1441799, 262144, 1, 1441800, 262144, 1, 1441801, 262144, 1, 1441802, 262144, 1, 1441803, 262144, 1, 1441804, 262144, 1, 1441805, 262144, 1, 1441806, 262144, 1, 1245200, 262144, 1, 1310736, 262144, 1, 1376272, 262144, 1, 1441808, 262144, 1, 1441807, 262144, 1, 1245201, 262144, 1, 1245202, 262144, 1, 1245203, 262144, 1, 983060, 262144, 1, 1048596, 262144, 1, 1114132, 262144, 1, 1179668, 262144, 1, 1245204, 262144, 1, 917507, 262144, 1, 851971, 262144, 1, 786435, 262144, 1, 720899, 262144, 1, 655363, 262144, 1, 524295, 262144, 1, 524296, 262144, 1, 524297, 262144, 1, 524298, 262144, 1, 524299, 262144, 1, 524300, 262144, 1, 524301, 262144, 1, 524302, 262144, 1, 524303, 262144, 1, 524304, 262144, 1, 655380, 262144, 1, 720916, 262144, 1, 786452, 262144, 1, 851988, 262144, 1, 917524, 262144, 1, 655364, 262144, 1, 655365, 262144, 1, 655366, 262144, 1, 655377, 262144, 1, 655378, 262144, 1, 655379, 262144, 1, 589830, 262144, 1, 524294, 262144, 1, 589841, 262144, 1, 524305, 262144, 1)
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="EnemyGhost" parent="Enemies" instance=ExtResource("4_fc830")]
+position = Vector2(123, 124)
+
+[node name="EnemyChicken" parent="Enemies" instance=ExtResource("5_cytc8")]
+position = Vector2(51, 124)
+
+[node name="EnemyChicken2" parent="Enemies" instance=ExtResource("5_cytc8")]
+position = Vector2(87, 164)

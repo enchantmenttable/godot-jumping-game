@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://ybpattqa3fw7"]
+
+[ext_resource type="PackedScene" uid="uid://cl6ckv2w8ao01" path="res://components/enemy_path_2d.tscn" id="1_6uaau"]
+[ext_resource type="Script" path="res://enemies/enemy_ghost.gd" id="1_rxsku"]
+[ext_resource type="Texture2D" uid="uid://drw70p46fqlhr" path="res://assets/alphaBG_tileset.png" id="2_2j7ch"]
+[ext_resource type="PackedScene" uid="uid://cg1i6wnm3s4w1" path="res://components/jump_on_part.tscn" id="3_p2kh5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3n7j"]
+atlas = ExtResource("2_2j7ch")
+region = Rect2(16, 48, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phbic"]
+atlas = ExtResource("2_2j7ch")
+region = Rect2(8, 48, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srbo4"]
+atlas = ExtResource("2_2j7ch")
+region = Rect2(0, 48, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_twuux"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3n7j")
+}],
+"loop": true,
+"name": &"spirit",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_phbic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_srbo4")
+}],
+"loop": true,
+"name": &"tangible",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mprcc"]
+size = Vector2(8, 7)
+
+[node name="EnemyGhost" type="Node2D" groups=["Enemy", "Enemy-Ghost"]]
+script = ExtResource("1_rxsku")
+metadata/_edit_group_ = true
+
+[node name="EnemyPath2D" parent="." node_paths=PackedStringArray("remote_node") instance=ExtResource("1_6uaau")]
+remote_node = NodePath("../Body")
+speed = 0.22
+
+[node name="Body" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Body"]
+sprite_frames = SubResource("SpriteFrames_twuux")
+animation = &"spirit"
+autoplay = "spirit"
+
+[node name="JumpOnPart" parent="Body" instance=ExtResource("3_p2kh5")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/JumpOnPart"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_mprcc")
+disabled = true

@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 Settings="*res://misc/Settings.gd"
 PlayerData="*res://player/PlayerData.gd"
 Messenger="*res://misc/Messenger.gd"
+GameState="*res://misc/GameState.gd"
 
 [display]
 
@@ -86,6 +87,7 @@ quit_game={
 2d_physics/layer_1="Platform"
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Enemy"
+2d_physics/layer_4="Object"
 
 [rendering]
 

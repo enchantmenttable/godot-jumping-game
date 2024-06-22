@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://de36sr4tq7gq2"]
+
+[ext_resource type="PackedScene" uid="uid://c8wi3emhc27qq" path="res://components/game_manager.tscn" id="1_35lf5"]
+[ext_resource type="PackedScene" uid="uid://bjbc8bs5s25eb" path="res://player/player.tscn" id="2_ryaki"]
+[ext_resource type="PackedScene" uid="uid://cdc53tunbbrki" path="res://tiles/tile_map_8x_8.tscn" id="3_ceram"]
+[ext_resource type="PackedScene" uid="uid://cqr8xa4t7cvxe" path="res://enemies/enemy_chicken.tscn" id="4_snm1q"]
+[ext_resource type="Texture2D" uid="uid://drw70p46fqlhr" path="res://assets/alphaBG_tileset.png" id="5_qq1kj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xldqv"]
+atlas = ExtResource("5_qq1kj")
+region = Rect2(40, 56, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w183l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xldqv")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 2.0
+}]
+
+[node name="Level1-6" type="Node2D"]
+
+[node name="GameManager" parent="." instance=ExtResource("1_35lf5")]
+final_level = true
+
+[node name="Player" parent="." instance=ExtResource("2_ryaki")]
+position = Vector2(104, 80)
+
+[node name="Tiles" type="Node2D" parent="."]
+
+[node name="TilemapPlatform8x8" parent="Tiles" instance=ExtResource("3_ceram")]
+layer_0/tile_data = PackedInt32Array(786449, 262144, 1, 786450, 262144, 1, 786451, 262144, 1, 1376257, 262144, 1, 1441793, 262144, 1, 1507329, 262144, 1, 1572865, 262144, 1, 1638401, 262144, 1, 655367, 262144, 1, 720903, 262144, 1, 786439, 262144, 1, 1048583, 262144, 1, 1114119, 262144, 1, 1179655, 262144, 1, 1441799, 262144, 1, 1507335, 262144, 1, 1572871, 262144, 1, 1048588, 262144, 1, 1114124, 262144, 1, 1507340, 262144, 1, 1572876, 262144, 1, 1638412, 262144, 1, 786448, 262144, 1, 1507348, 262144, 1, 1441812, 262144, 1, 1376276, 262144, 1, 1310740, 262144, 1, 1245204, 262144, 1, 1179668, 262144, 1, 1114132, 262144, 1, 1048596, 262144, 1, 983060, 262144, 1, 917524, 262144, 1, 851988, 262144, 1, 786452, 262144, 1, 720916, 262144, 1, 655380, 262144, 1, 589844, 262144, 1, 524308, 262144, 1, 458772, 262144, 1, 393236, 262144, 1, 327700, 262144, 1, 262164, 262144, 1, 131092, 262144, 1, 196628, 262144, 1, 393217, 262144, 1, 458753, 262144, 1, 524289, 262144, 1, 589825, 262144, 1, 655361, 262144, 1, 720897, 262144, 1, 786433, 262144, 1, 851969, 262144, 1, 917505, 262144, 1, 983041, 262144, 1, 1048577, 262144, 1, 1114113, 262144, 1, 1179649, 262144, 1, 1245185, 262144, 1, 1310721, 262144, 1, 131077, 262144, 1, 196612, 262144, 1, 262147, 262144, 1, 327682, 262144, 1, 851970, 262144, 1, 917506, 262144, 1, 983042, 262144, 1, 1245186, 262144, 1, 1310722, 262144, 1, 1376258, 262144, 1, 851987, 262144, 1, 1441804, 262144, 1, 786447, 262144, 1, 786446, 262144, 1, 786445, 262144, 1, 786444, 262144, 1, 851981, 262144, 1, 851980, 262144, 1, 917516, 262144, 1, 983052, 262144, 1, 1048595, 262144, 1, 851982, 262144, 1, 851983, 262144, 1, 851984, 262144, 1, 851985, 262144, 1, 851986, 262144, 1, 917522, 262144, 1, 917523, 262144, 1, 917521, 262144, 1, 917520, 262144, 1, 917519, 262144, 1, 917518, 262144, 1, 917517, 262144, 1, 983053, 262144, 1, 983054, 262144, 1, 983055, 262144, 1, 983056, 262144, 1, 983057, 262144, 1, 983058, 262144, 1, 983059, 262144, 1, 1703937, 262144, 1, 1703938, 262144, 1, 1703939, 262144, 1, 1703940, 262144, 1, 1703941, 262144, 1, 1703942, 262144, 1, 1703943, 262144, 1, 1703944, 262144, 1, 1703945, 262144, 1, 1703946, 262144, 1, 1703947, 262144, 1, 1703948, 262144, 1, 1703949, 262144, 1, 1703950, 262144, 1, 1703951, 262144, 1, 1703952, 262144, 1, 1703953, 262144, 1, 1703954, 262144, 1, 1703955, 262144, 1, 1703956, 262144, 1, 1638420, 262144, 1, 1572884, 262144, 1, 1638407, 262144, 1, 1245203, 262144, 1, 1310739, 262144, 1, 1376275, 262144, 1, 1048589, 262144, 1, 131083, 262144, 1, 131084, 262144, 1, 131085, 262144, 1, 131086, 262144, 1, 131087, 262144, 1, 131088, 262144, 1, 131089, 262144, 1, 131090, 262144, 1, 131091, 262144, 1, 196627, 262144, 1, 131082, 262144, 1, 131081, 262144, 1, 131080, 262144, 1, 131079, 262144, 1, 131078, 262144, 1, 720908, 262144, 1, 720909, 262144, 1, 1638419, 262144, 1, 1572877, 262144, 1, 1638413, 262144, 1, 1638418, 262144, 1)
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="EnemyChicken" parent="Enemies" instance=ExtResource("4_snm1q")]
+position = Vector2(80, 192)
+scale = Vector2(-1, 1)
+
+[node name="EnemyChicken8" parent="Enemies" instance=ExtResource("4_snm1q")]
+position = Vector2(130, 176)
+
+[node name="EnemyChicken6" parent="Enemies" instance=ExtResource("4_snm1q")]
+position = Vector2(38, 192)
+
+[node name="EnemyChicken7" parent="Enemies" instance=ExtResource("4_snm1q")]
+position = Vector2(80, 144)
+
+[node name="EnemyChicken2" parent="Enemies" instance=ExtResource("4_snm1q")]
+position = Vector2(128, 72)
+
+[node name="EnemyChicken3" parent="Enemies" instance=ExtResource("4_snm1q")]
+position = Vector2(38, 72)
+
+[node name="EnemyChicken4" parent="Enemies" instance=ExtResource("4_snm1q")]
+position = Vector2(80, 96)
+scale = Vector2(-1, 1)
+
+[node name="Key" parent="Enemies" instance=ExtResource("4_snm1q")]
+position = Vector2(130, 144)
+
+[node name="AnimatedSprite2D" parent="Enemies/Key/Body" index="0"]
+sprite_frames = SubResource("SpriteFrames_w183l")
+frame_progress = 0.0
+
+[editable path="Enemies/Key"]

@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var start_button = $Control/VBoxContainer/HBoxContainer/Start
+@onready var start = $Control/VBoxContainer/VBoxContainer/HBoxContainer2/Start
 @export var starting_level : PackedScene
 var starting_level_path
 

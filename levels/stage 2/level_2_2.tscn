@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=3 uid="uid://47q1pbn5dvjd"]
+
+[ext_resource type="PackedScene" uid="uid://c8wi3emhc27qq" path="res://components/game_manager.tscn" id="1_jvs6k"]
+[ext_resource type="PackedScene" uid="uid://bjbc8bs5s25eb" path="res://player/player.tscn" id="2_8ecrs"]
+[ext_resource type="PackedScene" uid="uid://shp1pi46tw6b" path="res://levels/stage 2/level_2_3.tscn" id="2_qromk"]
+[ext_resource type="PackedScene" uid="uid://cdc53tunbbrki" path="res://tiles/tile_map_8x_8.tscn" id="3_1vgb4"]
+[ext_resource type="PackedScene" uid="uid://cqr8xa4t7cvxe" path="res://enemies/enemy_chicken.tscn" id="4_d5mbp"]
+[ext_resource type="PackedScene" uid="uid://ybpattqa3fw7" path="res://enemies/enemy_ghost.tscn" id="5_0fsvx"]
+
+[sub_resource type="Curve2D" id="Curve2D_128el"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1, 0, 0, 0, 0, 0, -1, 78.2222, 0, 0, 0, 0, -1, 0)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_was4p"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 3.55556, 0, 0, 0, 0, 0, 62.2222, 0, 0, 0, 0, 0, -16, 0, 0, 0, 0, 0, 3.55556)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_iyhyu"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 7.1111, 0, 0, 0, 0, 0, 46.2222, 0, 0, 0, 0, 0, -32, 0, 0, 0, 0, 0, 7.1111)
+}
+point_count = 4
+
+[node name="Level2-2" type="Node2D"]
+
+[node name="GameManager" parent="." instance=ExtResource("1_jvs6k")]
+next_level = ExtResource("2_qromk")
+
+[node name="Player" parent="." instance=ExtResource("2_8ecrs")]
+position = Vector2(40, 136)
+
+[node name="Tiles" type="Node2D" parent="."]
+
+[node name="TilemapPlatform8x8" parent="Tiles" instance=ExtResource("3_1vgb4")]
+layer_0/tile_data = PackedInt32Array(1245189, 262144, 1, 327686, 262144, 1, 327687, 262144, 1, 327688, 262144, 1, 327689, 262144, 1, 327690, 262144, 1, 327693, 262144, 1, 720907, 262144, 1, 720908, 262144, 1, 917522, 262144, 1, 983058, 262144, 1, 1048594, 262144, 1, 1114130, 262144, 1, 1179666, 262144, 1, 1245202, 262144, 1, 1310738, 262144, 1, 655378, 262144, 1, 720914, 262144, 1, 786450, 262144, 1, 851986, 262144, 1, 589841, 262144, 1, 524304, 262144, 1, 458767, 262144, 1, 393230, 262144, 1, 1048578, 262144, 1, 1114114, 262144, 1, 1179650, 262144, 1, 983042, 262144, 1, 393221, 262144, 1, 458757, 262144, 1, 524293, 262144, 1, 589829, 262144, 1, 655365, 262144, 1, 720901, 262144, 1, 786437, 262144, 1, 851973, 262144, 1, 327685, 262144, 1, 917509, 262144, 1, 327691, 262144, 1, 327692, 262144, 1, 1441810, 262144, 1, 1441809, 262144, 1, 1441808, 262144, 1, 1441807, 262144, 1, 1441806, 262144, 1, 1441805, 262144, 1, 1441804, 262144, 1, 1441803, 262144, 1, 1441802, 262144, 1, 1441801, 262144, 1, 1441800, 262144, 1, 1441799, 262144, 1, 1441798, 262144, 1, 1441797, 262144, 1, 1376261, 262144, 1, 1310725, 262144, 1, 1376274, 262144, 1, 1179651, 262144, 1, 1179652, 262144, 1, 1179653, 262144, 1, 917507, 262144, 1, 917508, 262144, 1, 917506, 262144, 1)
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="EnemyChicken2" parent="Enemies" instance=ExtResource("4_d5mbp")]
+position = Vector2(64, 104)
+
+[node name="EnemyPath2D" parent="Enemies/EnemyChicken2" index="0"]
+position = Vector2(1, 0)
+scale = Vector2(1, 0.818182)
+curve = SubResource("Curve2D_128el")
+speed = 0.32
+
+[node name="EnemyChicken" parent="Enemies" instance=ExtResource("4_d5mbp")]
+position = Vector2(96, 120)
+
+[node name="EnemyPath2D" parent="Enemies/EnemyChicken" index="0"]
+position = Vector2(0, -2.90909)
+scale = Vector2(1, 0.818182)
+curve = SubResource("Curve2D_was4p")
+speed = 0.32
+
+[node name="EnemyChicken3" parent="Enemies" instance=ExtResource("4_d5mbp")]
+position = Vector2(128, 136)
+
+[node name="EnemyPath2D" parent="Enemies/EnemyChicken3" index="0"]
+position = Vector2(0, -5.81818)
+scale = Vector2(1, 0.818182)
+curve = SubResource("Curve2D_iyhyu")
+speed = 0.32
+
+[node name="EnemyGhost" parent="Enemies" instance=ExtResource("5_0fsvx")]
+position = Vector2(64, 72)
+
+[editable path="Enemies/EnemyChicken2"]
+[editable path="Enemies/EnemyChicken"]
+[editable path="Enemies/EnemyChicken3"]
