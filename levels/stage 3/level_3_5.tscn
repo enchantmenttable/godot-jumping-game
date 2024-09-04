@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://cc0ig5dv62748"]
+
+[ext_resource type="PackedScene" uid="uid://c8wi3emhc27qq" path="res://components/game_manager.tscn" id="1_fd1pn"]
+[ext_resource type="PackedScene" uid="uid://b0ueuk626gtpu" path="res://levels/stage 3/level_3_6.tscn" id="2_5xsyi"]
+[ext_resource type="PackedScene" uid="uid://bjbc8bs5s25eb" path="res://player/player.tscn" id="2_xl5w1"]
+[ext_resource type="PackedScene" uid="uid://cdc53tunbbrki" path="res://tiles/tile_map_8x_8.tscn" id="3_2lyot"]
+[ext_resource type="PackedScene" uid="uid://cqr8xa4t7cvxe" path="res://enemies/enemy_chicken.tscn" id="4_d1fc6"]
+[ext_resource type="PackedScene" uid="uid://dm5hob3jj06ex" path="res://enemies/enemy_hard.tscn" id="5_yjwpn"]
+[ext_resource type="PackedScene" uid="uid://ybpattqa3fw7" path="res://enemies/enemy_ghost.tscn" id="6_a5hki"]
+
+[node name="Level3-A" type="Node2D"]
+
+[node name="GameManager" parent="." instance=ExtResource("1_fd1pn")]
+next_level = ExtResource("2_5xsyi")
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." instance=ExtResource("2_xl5w1")]
+position = Vector2(40, 160)
+
+[node name="Tiles" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="TilemapPlatform8x8" parent="Tiles" instance=ExtResource("3_2lyot")]
+layer_0/tile_data = PackedInt32Array(1245185, 262144, 1, 1310721, 262144, 1, 1376257, 262144, 1, 1441793, 262144, 1, 1507329, 262144, 1, 1638410, 262144, 1, 1638411, 262144, 1, 1638404, 262144, 1, 1638406, 262144, 1, 1638407, 262144, 1, 1638408, 262144, 1, 1638409, 262144, 1, 1638412, 262144, 1, 1638413, 262144, 1, 1638414, 262144, 1, 1638415, 262144, 1, 1638403, 262144, 1, 1376260, 262144, 1, 1376261, 262144, 1, 1245193, 262144, 1, 1310729, 262144, 1, 1376265, 262144, 1, 1441801, 262144, 1, 1179660, 262144, 1, 1245196, 262144, 1, 1310732, 262144, 1, 1376268, 262144, 1, 1441804, 262144, 1, 1179657, 262144, 1, 1114124, 262144, 1, 1048588, 262144, 1, 786447, 262144, 1, 851983, 262144, 1, 917519, 262144, 1, 983055, 262144, 1, 1048591, 262144, 1, 1114127, 262144, 1, 1179663, 262144, 1, 1245199, 262144, 1, 1310735, 262144, 1, 1376271, 262144, 1, 1441807, 262144, 1, 1507343, 262144, 1, 1507340, 262144, 1, 1572876, 262144, 1, 1572879, 262144, 1, 1507337, 262144, 1, 1572873, 262144, 1, 262154, 262144, 1, 262155, 262144, 1, 262156, 262144, 1, 262157, 262144, 1, 262158, 262144, 1, 262159, 262144, 1, 262160, 262144, 1, 1638405, 262144, 1, 1572866, 262144, 1, 1572865, 262144, 1, 262162, 262144, 1, 327698, 262144, 1, 393234, 262144, 1, 458770, 262144, 1, 524306, 262144, 1, 589842, 262144, 1, 655378, 262144, 1, 720914, 262144, 1, 786450, 262144, 1, 851986, 262144, 1, 917522, 262144, 1, 983058, 262144, 1, 1048594, 262144, 1, 1114130, 262144, 1, 1179666, 262144, 1, 1245202, 262144, 1, 1310738, 262144, 1, 1376274, 262144, 1, 1441810, 262144, 1, 1507346, 262144, 1, 1572882, 262144, 1, 1638418, 262144, 1, 1638417, 262144, 1, 1638416, 262144, 1, 262161, 262144, 1, 1638402, 262144, 1, 1179650, 262144, 1, 1114115, 262144, 1, 1048580, 262144, 1, 983045, 262144, 1, 917510, 262144, 1, 1245186, 262144, 1, 1179651, 262144, 1, 1114116, 262144, 1, 1048581, 262144, 1, 983046, 262144, 1, 262151, 262144, 1, 262152, 262144, 1, 262153, 262144, 1, 786438, 262144, 1, 720902, 262144, 1, 655366, 262144, 1, 589830, 262144, 1, 524294, 262144, 1, 458758, 262144, 1, 393222, 262144, 1, 327686, 262144, 1, 262150, 262144, 1, 917511, 262144, 1, 851976, 262144, 1, 851975, 262144, 1, 786439, 262144, 1)
+metadata/_edit_lock_ = true
+
+[node name="Enemies" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="EnemyHard3" parent="Enemies" instance=ExtResource("5_yjwpn")]
+position = Vector2(112, 88)
+
+[node name="EnemyHard4" parent="Enemies" instance=ExtResource("5_yjwpn")]
+position = Vector2(64, 144)
+
+[node name="EnemyHard5" parent="Enemies" instance=ExtResource("5_yjwpn")]
+position = Vector2(88, 120)
+
+[node name="EnemyChicken" parent="Enemies" instance=ExtResource("4_d1fc6")]
+position = Vector2(88, 168)
+
+[node name="EnemyChicken2" parent="Enemies" instance=ExtResource("4_d1fc6")]
+position = Vector2(80, 88)
+
+[node name="EnemyGhost" parent="Enemies" instance=ExtResource("6_a5hki")]
+position = Vector2(136, 168)

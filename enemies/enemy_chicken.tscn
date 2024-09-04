@@ -1,15 +1,32 @@
-[gd_scene load_steps=9 format=3 uid="uid://cqr8xa4t7cvxe"]
+[gd_scene load_steps=14 format=3 uid="uid://cqr8xa4t7cvxe"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_dr6fo"]
 [ext_resource type="PackedScene" uid="uid://cl6ckv2w8ao01" path="res://components/enemy_path_2d.tscn" id="1_r00ur"]
 [ext_resource type="PackedScene" uid="uid://cg1i6wnm3s4w1" path="res://components/jump_on_part.tscn" id="2_pg3jk"]
+[ext_resource type="Texture2D" uid="uid://cj65pkamxrg78" path="res://assets/enemies_tileset.png" id="3_g03tl"]
 [ext_resource type="Texture2D" uid="uid://drw70p46fqlhr" path="res://assets/alphaBG_tileset.png" id="3_hq752"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7u1ws"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_vh5oe"]
+atlas = ExtResource("3_g03tl")
+region = Rect2(8, 0, 8, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0d04x"]
+atlas = ExtResource("3_g03tl")
+region = Rect2(16, 0, 8, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1mklt"]
+atlas = ExtResource("3_g03tl")
+region = Rect2(24, 0, 8, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ms3mu"]
+atlas = ExtResource("3_g03tl")
+region = Rect2(16, 0, 8, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwdro"]
 atlas = ExtResource("3_hq752")
 region = Rect2(0, 48, 8, 8)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_avj7f"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfq3w"]
 atlas = ExtResource("3_hq752")
 region = Rect2(8, 48, 8, 8)
 
@@ -17,18 +34,35 @@ region = Rect2(8, 48, 8, 8)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7u1ws")
+"texture": SubResource("AtlasTexture_vh5oe")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_avj7f")
+"texture": SubResource("AtlasTexture_0d04x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1mklt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ms3mu")
 }],
 "loop": true,
-"name": &"new_animation",
-"speed": 2.0
+"name": &"idle",
+"speed": 2.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwdro")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lfq3w")
+}],
+"loop": true,
+"name": &"moving",
+"speed": 2.5
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b56po"]
-size = Vector2(8, 7)
+size = Vector2(8, 8)
 
 [node name="EnemyChicken" type="Node2D" groups=["Enemy", "Enemy-Normal"]]
 script = ExtResource("1_dr6fo")
@@ -41,13 +75,14 @@ speed = 0.22
 [node name="Body" type="Node2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Body"]
+position = Vector2(0, 2)
 sprite_frames = SubResource("SpriteFrames_kc1ky")
-animation = &"new_animation"
-autoplay = "new_animation"
-frame_progress = 0.962755
+animation = &"idle"
+frame_progress = 0.189997
+
+[node name="SwitchSide" type="Timer" parent="Body/AnimatedSprite2D"]
 
 [node name="JumpOnPart" parent="Body" instance=ExtResource("2_pg3jk")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body/JumpOnPart"]
-position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_b56po")

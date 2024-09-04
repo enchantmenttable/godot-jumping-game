@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5gfs8r5ym7xy"]
+
+[ext_resource type="Script" path="res://UI/level_select_panel.gd" id="1_deavj"]
+[ext_resource type="Theme" uid="uid://crrsna3gdassq" path="res://assets/UI/theme_1.tres" id="1_h21nn"]
+[ext_resource type="PackedScene" uid="uid://bg4qgukv1ex8s" path="res://UI/level_node.tscn" id="3_6t4o0"]
+[ext_resource type="PackedScene" uid="uid://c1ohowgsb8b0t" path="res://UI/close_panel.tscn" id="4_4wfp1"]
+
+[node name="LevelSelectPanel3x2" type="Node2D"]
+script = ExtResource("1_deavj")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 33.0
+offset_bottom = 20.0
+theme = ExtResource("1_h21nn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.5
+offset_top = -7.0
+offset_right = 14.5
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="LevelNode1" parent="Panel/VBoxContainer/HBoxContainer" instance=ExtResource("3_6t4o0")]
+layout_mode = 2
+local_level = 1
+state = "Completed"
+
+[node name="LevelNode2" parent="Panel/VBoxContainer/HBoxContainer" instance=ExtResource("3_6t4o0")]
+layout_mode = 2
+local_level = 2
+state = "Completed"
+
+[node name="LevelNode3" parent="Panel/VBoxContainer/HBoxContainer" instance=ExtResource("3_6t4o0")]
+layout_mode = 2
+local_level = 3
+state = "In Progress"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="LevelNode4" parent="Panel/VBoxContainer/HBoxContainer2" instance=ExtResource("3_6t4o0")]
+layout_mode = 2
+local_level = 4
+
+[node name="LevelNode5" parent="Panel/VBoxContainer/HBoxContainer2" instance=ExtResource("3_6t4o0")]
+layout_mode = 2
+local_level = 5
+
+[node name="LevelNode6" parent="Panel/VBoxContainer/HBoxContainer2" instance=ExtResource("3_6t4o0")]
+layout_mode = 2
+local_level = 6
+
+[node name="ClosePanel" parent="Panel" instance=ExtResource("4_4wfp1")]
+layout_mode = 1
+offset_left = 13.0
+offset_top = 22.0
+offset_right = 20.0
+offset_bottom = 29.0
+
+[connection signal="button_down" from="Panel/ClosePanel" to="." method="_on_close_panel_button_down"]

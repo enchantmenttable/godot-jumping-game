@@ -23,7 +23,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_t3n7j")
 }],
-"loop": true,
+"loop": false,
 "name": &"spirit",
 "speed": 2.0
 }, {
@@ -36,7 +36,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"tangible",
-"speed": 5.0
+"speed": 2.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mprcc"]

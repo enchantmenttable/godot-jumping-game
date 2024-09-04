@@ -2,6 +2,7 @@ extends Node2D
 
 @export var final_level : bool = false
 @export var next_level : PackedScene
+@export var global_level_id : int
 var next_level_path : String
 
 @export_range(1, 4) var stage_id : int
@@ -27,6 +28,8 @@ var got_jumped_sounds = []
 var stage_select_path = "res://levels/stage_select.tscn"
 var enemy_normal_count = 0
 var enemy_ghost_count = 0
+var enemy_hard_count = 0
+var enemy_switch_count = 0
 var total_enemy_count = 0
 
 func _ready():
@@ -56,6 +59,10 @@ func _count_enemies():
 			enemy_normal_count += 1
 		elif enemy.is_in_group("Enemy-Ghost"):
 			enemy_ghost_count += 1
+		elif enemy.is_in_group("Enemy-Hard"):
+			enemy_hard_count += 1
+		elif enemy.is_in_group("Enemy-Switch"):
+			enemy_switch_count += 1
 	total_enemy_count = enemies.size()
 
 func _process(_float): # testing purpose
@@ -74,19 +81,27 @@ func _enemy_gets_jumped(enemy_type):
 	match enemy_type:
 		"Enemy-Normal":
 			enemy_normal_count -= 1
+		"Enemy-Hard-Die":
+			enemy_hard_count -= 1
 
-	total_enemy_count -= 1
+	if enemy_normal_count == 0 \
+		and enemy_hard_count == 0 \
+		and enemy_switch_count == 0:
+		Messenger.all_tangible_enemies_dead.emit()
+
+	got_jumped_sounds[pitch_scale].play()
+
+	if enemy_type != "Enemy-Hard-Jumped-Once":
+		pitch_scale += 1
+		total_enemy_count -= 1
+
 	if total_enemy_count == 0:
+		save_progress()
 		if not final_level:
 			_win_level()
 		else:
 			_win_stage()
 
-	if enemy_normal_count == 0:
-		Messenger.all_normal_enemies_dead.emit()
-
-	got_jumped_sounds[pitch_scale].play()
-	pitch_scale += 1
 
 func _win_level():
 	Messenger.player_change_to_win_state.emit()
@@ -105,3 +120,8 @@ func _on_win_stage_finished():
 
 func _on_die_finished():
 	get_tree().call_deferred("reload_current_scene")
+
+func save_progress():
+	var data = SaveData.new().load_data()
+	data.current_progress += 1
+	data.save_data()

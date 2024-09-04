@@ -1,69 +1,95 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbv6laci2w84b"]
+[gd_scene load_steps=7 format=3 uid="uid://dbv6laci2w84b"]
 
 [ext_resource type="Script" path="res://levels/stage_select.gd" id="1_c23gg"]
 [ext_resource type="PackedScene" uid="uid://cdc53tunbbrki" path="res://tiles/tile_map_8x_8.tscn" id="1_mv40d"]
 [ext_resource type="PackedScene" uid="uid://bjbc8bs5s25eb" path="res://player/player.tscn" id="2_uwo0l"]
 [ext_resource type="PackedScene" uid="uid://ysphu3akq82j" path="res://objects/stage_door.tscn" id="4_d22po"]
-[ext_resource type="FontFile" uid="uid://d5mt76lp83ts" path="res://assets/monogram.ttf" id="5_28jq6"]
+[ext_resource type="Texture2D" uid="uid://oh6w258rreak" path="res://assets/roman numbers.png" id="5_5kfec"]
+[ext_resource type="PackedScene" uid="uid://2elwl88oiovu" path="res://objects/menu_door.tscn" id="6_xv5ws"]
 
 [node name="StageSelect" type="Node2D"]
 script = ExtResource("1_c23gg")
 
 [node name="TilemapPlatform8x8" parent="." instance=ExtResource("1_mv40d")]
-layer_0/tile_data = PackedInt32Array(1376262, 131072, 2, 1310731, 196608, 2, 1310732, 262144, 2, 1310733, 262144, 2, 1310734, 327680, 2, 1376261, 65536, 2, 1376260, 65536, 2, 1376259, 65536, 2, 1376258, 65536, 2, 1376257, 65536, 2, 1376275, 262144, 1, 1310739, 262144, 1, 1245203, 262144, 1, 1179667, 262144, 1, 917523, 262144, 1, 851987, 262144, 1, 786451, 262144, 1, 720915, 262144, 1, 655379, 262144, 1, 589843, 262144, 1, 1048592, 0, 3, 1114128, 0, 4, 1114129, 65536, 4, 1114130, 65536, 4, 983057, 65536, 2, 983058, 65536, 2, 983056, 0, 2, 1114131, 65536, 4, 983059, 65536, 2, 1441799, 458752, 5, 1441800, 458752, 5, 1441801, 458752, 5, 1441802, 458752, 5, 1441803, 458752, 5, 1441804, 458752, 5, 1441805, 458752, 5, 1441806, 458752, 5, 1441807, 458752, 5, 1441808, 458752, 5, 1441809, 458752, 5, 1441810, 458752, 5)
-layer_2/tile_data = PackedInt32Array(1376263, 327680, 5, 1376264, 327680, 5, 1376265, 327680, 5, 1376266, 327680, 5, 1376267, 327680, 5, 1376268, 327680, 5, 1376269, 327680, 5, 1376270, 327680, 5, 1376271, 327680, 5, 1376272, 327680, 5, 1376273, 327680, 5, 1376274, 327680, 5)
+layer_0/z_index = -1
+layer_0/tile_data = PackedInt32Array(1376262, 262144, 1, 1376261, 262144, 1, 1376260, 262144, 1, 1376259, 262144, 1, 1376258, 262144, 1, 1376257, 262144, 1, 1310721, 262144, 1, 1245185, 262144, 1, 1179649, 262144, 1, 1114113, 262144, 1, 1048577, 262144, 1, 983041, 262144, 1, 917505, 262144, 1, 1179667, 65536, 2, 1179666, 0, 2, 1114132, 262144, 1, 1048596, 262144, 1, 983060, 262144, 1, 917524, 262144, 1, 851988, 262144, 1, 786452, 262144, 1, 1179668, 65536, 2, 1310740, 65536, 4, 1310738, 0, 4, 1310739, 65536, 4, 1245202, 0, 3, 1507348, 262144, 1, 1507347, 262144, 1, 1507346, 262144, 1, 1507345, 262144, 1, 1507344, 262144, 1, 1507343, 262144, 1, 1507342, 262144, 1, 1507341, 262144, 1, 1507340, 262144, 1, 1507339, 262144, 1, 1507338, 262144, 1, 1507337, 262144, 1, 1507336, 262144, 1, 1507335, 262144, 1, 1507334, 262144, 1, 1441798, 262144, 1, 1441812, 262144, 1, 1376276, 262144, 1, 786433, 262144, 1, 851969, 262144, 1, 1441799, 0, 1, 589825, 262144, 1, 655361, 262144, 1, 720897, 262144, 1, 589829, 262144, 1, 589830, 262144, 1, 589836, 262144, 1, 589843, 262144, 1, 655379, 262144, 1, 720915, 262144, 1, 720916, 262144, 1, 589826, 262144, 1, 589827, 262144, 1, 589828, 262144, 1, 589831, 262144, 1, 589832, 262144, 1, 589833, 262144, 1, 589834, 262144, 1, 589835, 262144, 1, 589837, 262144, 1, 589838, 262144, 1, 589839, 262144, 1, 589840, 262144, 1, 589841, 262144, 1, 589842, 262144, 1, 786451, 131072, 5, 1310732, 262144, 2, 1310735, 327680, 2, 1310733, 262144, 2, 1310734, 262144, 2, 1310731, 196608, 2, 1114120, 196608, 2, 1114121, 262144, 2, 1114124, 327680, 2, 1114123, 262144, 2, 1114122, 262144, 2)
+layer_1/name = "Layer1"
+layer_1/tile_data = PackedInt32Array(1441808, 131072, 1, 1441807, 65536, 1, 655365, 0, 5, 655364, 65536, 5, 655375, 0, 5, 786451, 131072, 5)
 
 [node name="Player" parent="." instance=ExtResource("2_uwo0l")]
-position = Vector2(88, 16)
+position = Vector2(96, 180)
 dead_touch = false
 edge_check = false
 
 [node name="Doors" type="Node2D" parent="."]
 
 [node name="StageDoor1" parent="Doors" instance=ExtResource("4_d22po")]
-position = Vector2(43, 164)
+position = Vector2(37, 164)
 state = "Open"
 
-[node name="Label" type="Label" parent="Doors/StageDoor1"]
-offset_left = -3.0
-offset_top = -28.0
-offset_right = 5.0
-offset_bottom = -12.0
-theme_override_fonts/font = ExtResource("5_28jq6")
-text = "1"
+[node name="LevelSelectPanel3x2" parent="Doors/StageDoor1" index="0"]
+stage = 1
+
+[node name="StageLabel" type="Sprite2D" parent="Doors/StageDoor1"]
+position = Vector2(0, -12)
+texture = ExtResource("5_5kfec")
+region_enabled = true
+region_rect = Rect2(0, 2, 1, 4)
 
 [node name="StageDoor2" parent="Doors" instance=ExtResource("4_d22po")]
-position = Vector2(104, 156)
+position = Vector2(112, 156)
 stage_id = 2
 
-[node name="Label" type="Label" parent="Doors/StageDoor2"]
-offset_left = -3.0
-offset_top = -28.0
-offset_right = 5.0
-offset_bottom = -12.0
-theme_override_fonts/font = ExtResource("5_28jq6")
-text = "2"
+[node name="LevelSelectPanel3x2" parent="Doors/StageDoor2" index="0"]
+stage = 2
+
+[node name="StageLabel" type="Node2D" parent="Doors/StageDoor2"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Doors/StageDoor2/StageLabel"]
+position = Vector2(-1, -12)
+texture = ExtResource("5_5kfec")
+region_enabled = true
+region_rect = Rect2(0, 2, 1, 4)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Doors/StageDoor2/StageLabel"]
+position = Vector2(1, -12)
+texture = ExtResource("5_5kfec")
+region_enabled = true
+region_rect = Rect2(0, 2, 1, 4)
 
 [node name="StageDoor3" parent="Doors" instance=ExtResource("4_d22po")]
-position = Vector2(138, 116)
+position = Vector2(152, 140)
 stage_id = 3
 
-[node name="Label" type="Label" parent="Doors/StageDoor3"]
-offset_left = -3.0
-offset_top = -25.0
-offset_right = 5.0
-offset_bottom = -9.0
-theme_override_fonts/font = ExtResource("5_28jq6")
-text = "3"
+[node name="LevelSelectPanel3x2" parent="Doors/StageDoor3" index="0"]
+position = Vector2(-28, -36)
+stage = 3
+
+[node name="StageLabel" type="Sprite2D" parent="Doors/StageDoor3"]
+position = Vector2(0, -12)
+texture = ExtResource("5_5kfec")
+region_enabled = true
+region_rect = Rect2(10, 2, 5, 4)
 
 [node name="StageDoor4" parent="Doors" instance=ExtResource("4_d22po")]
-position = Vector2(56, 88)
+position = Vector2(80, 132)
 stage_id = 4
 
-[node name="Label" type="Label" parent="Doors/StageDoor4"]
-offset_left = -3.0
-offset_top = -26.0
-offset_right = 5.0
-offset_bottom = -10.0
-theme_override_fonts/font = ExtResource("5_28jq6")
-text = "4"
+[node name="LevelSelectPanel3x2" parent="Doors/StageDoor4" index="0"]
+stage = 4
+
+[node name="StageLabel" type="Sprite2D" parent="Doors/StageDoor4"]
+position = Vector2(0, -12)
+texture = ExtResource("5_5kfec")
+region_enabled = true
+region_rect = Rect2(0, 10, 5, 4)
+
+[node name="MenuDoor" parent="." instance=ExtResource("6_xv5ws")]
+position = Vector2(81, 180)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[editable path="Doors/StageDoor1"]
+[editable path="Doors/StageDoor2"]
+[editable path="Doors/StageDoor3"]
+[editable path="Doors/StageDoor4"]

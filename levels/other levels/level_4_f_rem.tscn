@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://c8c57w7kxtbha"]
+
+[ext_resource type="PackedScene" uid="uid://c8wi3emhc27qq" path="res://components/game_manager.tscn" id="1_woa14"]
+[ext_resource type="PackedScene" uid="uid://bjbc8bs5s25eb" path="res://player/player.tscn" id="2_aw1of"]
+[ext_resource type="PackedScene" uid="uid://cdc53tunbbrki" path="res://tiles/tile_map_8x_8.tscn" id="3_12jo5"]
+[ext_resource type="PackedScene" uid="uid://cvchokirwnpbf" path="res://objects/remember_block.tscn" id="4_3s7s3"]
+[ext_resource type="PackedScene" uid="uid://dm5hob3jj06ex" path="res://enemies/enemy_hard.tscn" id="5_jb1j0"]
+[ext_resource type="PackedScene" uid="uid://cqr8xa4t7cvxe" path="res://enemies/enemy_chicken.tscn" id="6_xaepw"]
+
+[node name="Level4-f" type="Node2D"]
+
+[node name="GameManager" parent="." instance=ExtResource("1_woa14")]
+final_level = true
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." instance=ExtResource("2_aw1of")]
+position = Vector2(40, 112)
+
+[node name="Tiles" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="TilemapPlatform8x8" parent="Tiles" instance=ExtResource("3_12jo5")]
+layer_0/tile_data = PackedInt32Array(983044, 262144, 1, 983045, 262144, 1, 851970, 262144, 1, 917506, 262144, 1, 983042, 262144, 1, 1048578, 262144, 1, 1114114, 262144, 1, 1179650, 262144, 1, 983043, 262144, 1, 1245187, 262144, 1, 1245186, 262144, 1, 1245188, 262144, 1, 1310724, 262144, 1, 1310725, 262144, 1, 1310726, 262144, 1, 1376263, 262144, 1, 1376264, 262144, 1, 1376265, 262144, 1, 1376266, 262144, 1, 1376267, 262144, 1, 1376268, 262144, 1, 1376269, 262144, 1, 1376270, 262144, 1, 1376262, 262144, 1, 1310735, 262144, 1, 1376271, 262144, 1, 1310736, 262144, 1, 1310737, 262144, 1, 1245201, 262144, 1, 1245202, 262144, 1, 1245203, 262144, 1, 1179667, 262144, 1, 1114131, 262144, 1, 1048595, 262144, 1, 983059, 262144, 1, 917523, 262144, 1, 851987, 262144, 1, 786434, 262144, 1, 655362, 262144, 1, 720898, 262144, 1, 655379, 262144, 1, 720915, 262144, 1, 786451, 262144, 1, 589826, 262144, 1, 524291, 262144, 1, 524290, 262144, 1, 524292, 262144, 1, 458756, 262144, 1, 458757, 262144, 1, 458758, 262144, 1, 393222, 262144, 1, 393223, 262144, 1, 393224, 262144, 1, 393225, 262144, 1, 393226, 262144, 1, 393227, 262144, 1, 393228, 262144, 1, 393229, 262144, 1, 393230, 262144, 1, 589843, 262144, 1, 524307, 262144, 1, 524306, 262144, 1, 524305, 262144, 1, 458769, 262144, 1, 458768, 262144, 1, 458767, 262144, 1, 393231, 262144, 1, 1048580, 262144, 1, 1048579, 262144, 1, 1179658, 262144, 1, 1114123, 262144, 1, 1245195, 262144, 1, 1310730, 262144, 1)
+metadata/_edit_lock_ = true
+
+[node name="Objects" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="RemBlocks" type="Node2D" parent="Objects"]
+
+[node name="RememberBlock" parent="Objects/RemBlocks" instance=ExtResource("4_3s7s3")]
+position = Vector2(88, 96)
+
+[node name="RememberBlock2" parent="Objects/RemBlocks" instance=ExtResource("4_3s7s3")]
+position = Vector2(88, 112)
+
+[node name="RememberBlock3" parent="Objects/RemBlocks" instance=ExtResource("4_3s7s3")]
+position = Vector2(88, 128)
+
+[node name="RememberBlock5" parent="Objects/RemBlocks" instance=ExtResource("4_3s7s3")]
+position = Vector2(88, 120)
+
+[node name="RememberBlock7" parent="Objects/RemBlocks" instance=ExtResource("4_3s7s3")]
+position = Vector2(88, 104)
+
+[node name="Enemies" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="EnemyHard" parent="Enemies" instance=ExtResource("5_jb1j0")]
+position = Vector2(72, 136)
+
+[node name="EnemyChicken" parent="Enemies" instance=ExtResource("6_xaepw")]
+position = Vector2(104, 136)
+
+[node name="ToggleBlocks" type="Node2D" parent="."]
+metadata/_edit_lock_ = true

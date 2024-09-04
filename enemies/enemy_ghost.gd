@@ -6,7 +6,7 @@ extends Node2D
 
 
 func _ready():
-	Messenger.all_normal_enemies_dead.connect(_change_form)
+	Messenger.all_tangible_enemies_dead.connect(_change_form)
 
 func got_jumped():
 	Messenger.enemy_gets_jumped.emit("Enemy-Ghost")

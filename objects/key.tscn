@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddnst337fkr2b"]
+
+[ext_resource type="Texture2D" uid="uid://drw70p46fqlhr" path="res://assets/alphaBG_tileset.png" id="1_gt6ds"]
+[ext_resource type="Script" path="res://objects/key.gd" id="1_xgawr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4nkv"]
+size = Vector2(10, 8)
+
+[node name="Key" type="Node2D"]
+script = ExtResource("1_xgawr")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_f4nkv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("1_gt6ds")
+region_enabled = true
+region_rect = Rect2(40, 56, 8, 8)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

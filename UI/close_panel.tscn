@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1ohowgsb8b0t"]
+
+[ext_resource type="Texture2D" uid="uid://onpdumx8k7dg" path="res://assets/UI/close_select_panel.png" id="1_bh5uc"]
+[ext_resource type="Texture2D" uid="uid://cjuh6706ffdx1" path="res://assets/UI/focus_close_select_panel.png" id="2_u7wjb"]
+
+[node name="ClosePanel" type="TextureButton"]
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("1_bh5uc")
+texture_focused = ExtResource("2_u7wjb")

@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cso0i87vyv7qj"]
+[gd_scene load_steps=8 format=3 uid="uid://cso0i87vyv7qj"]
 
 [ext_resource type="PackedScene" uid="uid://c8wi3emhc27qq" path="res://components/game_manager.tscn" id="1_gqj7g"]
+[ext_resource type="PackedScene" uid="uid://cyrk8kha1rnlp" path="res://levels/stage 2/level_2_5.tscn" id="2_d14xr"]
 [ext_resource type="PackedScene" uid="uid://bjbc8bs5s25eb" path="res://player/player.tscn" id="2_hrbj0"]
 [ext_resource type="PackedScene" uid="uid://cdc53tunbbrki" path="res://tiles/tile_map_8x_8.tscn" id="3_h5371"]
 [ext_resource type="PackedScene" uid="uid://cqr8xa4t7cvxe" path="res://enemies/enemy_chicken.tscn" id="4_w6eiw"]
@@ -15,7 +16,7 @@ point_count = 3
 [node name="Level2-4" type="Node2D"]
 
 [node name="GameManager" parent="." instance=ExtResource("1_gqj7g")]
-final_level = true
+next_level = ExtResource("2_d14xr")
 
 [node name="Player" parent="." instance=ExtResource("2_hrbj0")]
 position = Vector2(80, 112)
@@ -47,6 +48,6 @@ speed = 0.34
 position = Vector2(48, 128)
 
 [node name="EnemyGhost3" parent="Enemies" instance=ExtResource("5_w8gae")]
-position = Vector2(56, 96)
+position = Vector2(48, 96)
 
 [editable path="Enemies/EnemyGhost2"]

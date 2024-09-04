@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://ysphu3akq82j"]
+[gd_scene load_steps=8 format=3 uid="uid://ysphu3akq82j"]
 
 [ext_resource type="Script" path="res://objects/stage_door.gd" id="1_b4jj3"]
 [ext_resource type="Texture2D" uid="uid://drw70p46fqlhr" path="res://assets/alphaBG_tileset.png" id="2_h7y6y"]
+[ext_resource type="PackedScene" uid="uid://b5gfs8r5ym7xy" path="res://UI/level_select_panel.tscn" id="2_puj1t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eu10w"]
 size = Vector2(10, 8)
@@ -34,9 +35,14 @@ animations = [{
 }]
 
 [node name="StageDoor" type="Area2D"]
+z_index = -1
+z_as_relative = false
 collision_layer = 8
 collision_mask = 2
 script = ExtResource("1_b4jj3")
+
+[node name="LevelSelectPanel3x2" parent="." instance=ExtResource("2_puj1t")]
+position = Vector2(-17, -36)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_eu10w")

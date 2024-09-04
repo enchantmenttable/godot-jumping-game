@@ -1,0 +1,100 @@
+[gd_scene load_steps=14 format=3 uid="uid://w8kga06cwx8g"]
+
+[ext_resource type="PackedScene" uid="uid://cl6ckv2w8ao01" path="res://components/enemy_path_2d.tscn" id="1_sm4ax"]
+[ext_resource type="Script" path="res://objects/bouncy_head.gd" id="1_tg6xi"]
+[ext_resource type="Texture2D" uid="uid://ce0rte3am3oyg" path="res://assets/bouncy_head2.png" id="2_e0ppy"]
+[ext_resource type="PackedScene" uid="uid://cg1i6wnm3s4w1" path="res://components/jump_on_part.tscn" id="2_lvhew"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7n25"]
+atlas = ExtResource("2_e0ppy")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_to6vw"]
+atlas = ExtResource("2_e0ppy")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kme0v"]
+atlas = ExtResource("2_e0ppy")
+region = Rect2(0, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2yma"]
+atlas = ExtResource("2_e0ppy")
+region = Rect2(8, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4012"]
+atlas = ExtResource("2_e0ppy")
+region = Rect2(0, 16, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73aqw"]
+atlas = ExtResource("2_e0ppy")
+region = Rect2(8, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rd0h6"]
+atlas = ExtResource("2_e0ppy")
+region = Rect2(0, 8, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sewhi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7n25")
+}],
+"loop": false,
+"name": &"got_jumped",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_to6vw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kme0v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2yma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q4012")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73aqw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rd0h6")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2u4wx"]
+size = Vector2(9, 7)
+
+[node name="BouncyHead" type="Node2D"]
+script = ExtResource("1_tg6xi")
+metadata/_edit_group_ = true
+
+[node name="EnemyPath2D" parent="." node_paths=PackedStringArray("remote_node") instance=ExtResource("1_sm4ax")]
+remote_node = NodePath("../Body")
+speed = 0.22
+
+[node name="AnimTimer" type="Timer" parent="."]
+wait_time = 0.08
+one_shot = true
+
+[node name="Body" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Body"]
+sprite_frames = SubResource("SpriteFrames_sewhi")
+animation = &"normal"
+autoplay = "normal"
+frame_progress = 0.96667
+
+[node name="JumpOnPart" parent="Body" instance=ExtResource("2_lvhew")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/JumpOnPart"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_2u4wx")
+
+[connection signal="timeout" from="AnimTimer" to="." method="_on_anim_timer_timeout"]

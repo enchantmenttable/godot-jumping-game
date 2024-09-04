@@ -1,0 +1,77 @@
+[gd_scene load_steps=12 format=3 uid="uid://dm5hob3jj06ex"]
+
+[ext_resource type="Script" path="res://enemies/enemy_hard.gd" id="1_3c42l"]
+[ext_resource type="PackedScene" uid="uid://cl6ckv2w8ao01" path="res://components/enemy_path_2d.tscn" id="1_h6lhs"]
+[ext_resource type="Texture2D" uid="uid://drw70p46fqlhr" path="res://assets/alphaBG_tileset.png" id="2_b2ve3"]
+[ext_resource type="Texture2D" uid="uid://vagi5aevmbk4" path="res://assets/hard_enemy.png" id="3_6sape"]
+[ext_resource type="PackedScene" uid="uid://cg1i6wnm3s4w1" path="res://components/jump_on_part.tscn" id="4_triw8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vimll"]
+atlas = ExtResource("3_6sape")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yonqu"]
+atlas = ExtResource("2_b2ve3")
+region = Rect2(16, 48, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8t0f"]
+atlas = ExtResource("2_b2ve3")
+region = Rect2(0, 48, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fd31k"]
+atlas = ExtResource("2_b2ve3")
+region = Rect2(8, 48, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mcs83"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vimll")
+}],
+"loop": false,
+"name": &"hard",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yonqu")
+}],
+"loop": false,
+"name": &"intangible",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8t0f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fd31k")
+}],
+"loop": true,
+"name": &"tangible",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jwtar"]
+size = Vector2(8, 7)
+
+[node name="EnemyHard" type="Node2D" groups=["Enemy", "Enemy-Hard"]]
+script = ExtResource("1_3c42l")
+metadata/_edit_group_ = true
+
+[node name="EnemyPath2D" parent="." node_paths=PackedStringArray("remote_node") instance=ExtResource("1_h6lhs")]
+remote_node = NodePath("../Body")
+speed = 0.22
+
+[node name="Body" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Body"]
+sprite_frames = SubResource("SpriteFrames_mcs83")
+animation = &"hard"
+autoplay = "hard"
+
+[node name="JumpOnPart" parent="Body" instance=ExtResource("4_triw8")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/JumpOnPart"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_jwtar")

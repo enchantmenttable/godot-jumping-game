@@ -1,0 +1,71 @@
+[gd_scene load_steps=11 format=3 uid="uid://ctduqbqmnby26"]
+
+[ext_resource type="Script" path="res://enemies/enemy_switch.gd" id="1_34ao0"]
+[ext_resource type="PackedScene" uid="uid://cl6ckv2w8ao01" path="res://components/enemy_path_2d.tscn" id="1_tdij4"]
+[ext_resource type="PackedScene" uid="uid://cg1i6wnm3s4w1" path="res://components/jump_on_part.tscn" id="2_iew27"]
+[ext_resource type="Texture2D" uid="uid://qgge06n2cwae" path="res://assets/switch.png" id="3_pav68"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8ubo"]
+atlas = ExtResource("3_pav68")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_msvjv"]
+atlas = ExtResource("3_pav68")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxa5d"]
+atlas = ExtResource("3_pav68")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_07y0l"]
+atlas = ExtResource("3_pav68")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u1l81"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d8ubo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_msvjv")
+}],
+"loop": true,
+"name": &"Closed",
+"speed": 2.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vxa5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_07y0l")
+}],
+"loop": true,
+"name": &"Open",
+"speed": 2.5
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_solx4"]
+size = Vector2(7, 8)
+
+[node name="EnemySwitch" type="Node2D" groups=["Enemy", "Enemy-Switch"]]
+script = ExtResource("1_34ao0")
+metadata/_edit_group_ = true
+
+[node name="EnemyPath2D" parent="." node_paths=PackedStringArray("remote_node") instance=ExtResource("1_tdij4")]
+remote_node = NodePath("../Body")
+
+[node name="Body" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Body"]
+sprite_frames = SubResource("SpriteFrames_u1l81")
+animation = &"Open"
+
+[node name="SwitchSide" type="Timer" parent="Body/AnimatedSprite2D"]
+
+[node name="JumpOnPart" parent="Body" instance=ExtResource("2_iew27")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/JumpOnPart"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_solx4")

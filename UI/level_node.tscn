@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bg4qgukv1ex8s"]
+
+[ext_resource type="Texture2D" uid="uid://chwh4s1juctcg" path="res://assets/UI/level_node_completed.png" id="1_j7l0h"]
+[ext_resource type="Script" path="res://UI/level_node.gd" id="1_trq2u"]
+
+[node name="LevelNode" type="TextureButton"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("1_j7l0h")
+script = ExtResource("1_trq2u")
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]

@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://csbpcrkwagjj5"]
+
+[ext_resource type="Texture2D" uid="uid://oqocurnaqu4p" path="res://assets/lines.png" id="1_isocd"]
+[ext_resource type="Script" path="res://tiles/misc_tilemap.gd" id="2_ufoer"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3wusm"]
+texture = ExtResource("1_isocd")
+texture_region_size = Vector2i(8, 8)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+3:1/0 = 0
+2:1/0 = 0
+1:1/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_qbx54"]
+tile_size = Vector2i(8, 8)
+sources/0 = SubResource("TileSetAtlasSource_3wusm")
+
+[node name="Misc" type="TileMap"]
+modulate = Color(1, 1, 1, 0.384314)
+tile_set = SubResource("TileSet_qbx54")
+format = 2
+layer_0/z_index = -1
+script = ExtResource("2_ufoer")

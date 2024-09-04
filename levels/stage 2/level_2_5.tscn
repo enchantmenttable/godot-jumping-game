@@ -1,30 +1,81 @@
-[gd_scene load_steps=5 format=3 uid="uid://cyrk8kha1rnlp"]
+[gd_scene load_steps=11 format=3 uid="uid://cyrk8kha1rnlp"]
 
 [ext_resource type="PackedScene" uid="uid://c8wi3emhc27qq" path="res://components/game_manager.tscn" id="1_8qiau"]
+[ext_resource type="PackedScene" uid="uid://c48ctsdo5qaix" path="res://levels/stage 2/level_2_6.tscn" id="2_0uwvr"]
 [ext_resource type="PackedScene" uid="uid://bjbc8bs5s25eb" path="res://player/player.tscn" id="2_qhkje"]
 [ext_resource type="PackedScene" uid="uid://cdc53tunbbrki" path="res://tiles/tile_map_8x_8.tscn" id="3_0vh67"]
 [ext_resource type="PackedScene" uid="uid://cqr8xa4t7cvxe" path="res://enemies/enemy_chicken.tscn" id="4_1pkc5"]
+[ext_resource type="PackedScene" uid="uid://ybpattqa3fw7" path="res://enemies/enemy_ghost.tscn" id="5_xmjc7"]
+
+[sub_resource type="Curve2D" id="Curve2D_hcg4v"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -56, 0, 0, 0, 0, 0, 24, 0, 0, 0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_fpau6"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -64, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_k2a02"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -64, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_kd6q8"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -56, 0, 0, 0, 0, 0, 24, 0, 0, 0, 0, 0, 0)
+}
+point_count = 4
 
 [node name="Level2-5" type="Node2D"]
+metadata/_edit_lock_ = true
 
 [node name="GameManager" parent="." instance=ExtResource("1_8qiau")]
-position = Vector2(40, 40)
+next_level = ExtResource("2_0uwvr")
+metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("2_qhkje")]
-position = Vector2(40, 40)
+position = Vector2(88, 164)
 
 [node name="Tiles" type="Node2D" parent="."]
-position = Vector2(40, 40)
+metadata/_edit_lock_ = true
 
 [node name="TilemapPlatform8x8" parent="Tiles" instance=ExtResource("3_0vh67")]
+position = Vector2(4, 0)
+layer_0/tile_data = PackedInt32Array(1376265, 262144, 1, 720906, 262144, 1, 1048586, 262144, 1, 1376266, 262144, 1, 1376267, 262144, 1, 1179651, 262144, 1, 1114115, 262144, 1, 1048579, 262144, 1, 983043, 262144, 1, 917507, 262144, 1, 851971, 262144, 1, 786435, 262144, 1, 720899, 262144, 1, 655363, 262144, 1, 589827, 262144, 1, 524291, 262144, 1, 458755, 262144, 1, 393219, 262144, 1, 393233, 262144, 1, 458769, 262144, 1, 524305, 262144, 1, 589841, 262144, 1, 655377, 262144, 1, 720913, 262144, 1, 786449, 262144, 1, 851985, 262144, 1, 917521, 262144, 1, 983057, 262144, 1, 1048593, 262144, 1, 1114129, 262144, 1, 1179665, 262144, 1, 1245201, 262144, 1, 1376259, 262144, 1, 1310723, 262144, 1, 1245187, 262144, 1, 1376273, 262144, 1, 1310737, 262144, 1, 1441795, 262144, 1, 1507331, 262144, 1, 1507332, 262144, 1, 1507333, 262144, 1, 1507334, 262144, 1, 1507335, 262144, 1, 1507336, 262144, 1, 1507337, 262144, 1, 1441801, 262144, 1, 1441803, 262144, 1, 1507339, 262144, 1, 1507340, 262144, 1, 1507341, 262144, 1, 1507342, 262144, 1, 1507343, 262144, 1, 1507344, 262144, 1, 1441809, 262144, 1, 1507345, 262144, 1, 393220, 262144, 1, 393221, 262144, 1, 393222, 262144, 1, 393223, 262144, 1, 393224, 262144, 1, 393225, 262144, 1, 393226, 262144, 1, 393227, 262144, 1, 393228, 262144, 1, 393229, 262144, 1, 393230, 262144, 1, 393231, 262144, 1, 393232, 262144, 1)
 
 [node name="Enemies" type="Node2D" parent="."]
-
-[node name="EnemyChicken3" parent="Enemies" instance=ExtResource("4_1pkc5")]
-position = Vector2(72, 24)
+metadata/_edit_lock_ = true
 
 [node name="EnemyChicken2" parent="Enemies" instance=ExtResource("4_1pkc5")]
-position = Vector2(24, 24)
+position = Vector2(56, 136)
+
+[node name="EnemyPath2D" parent="Enemies/EnemyChicken2" index="0"]
+curve = SubResource("Curve2D_hcg4v")
 
 [node name="EnemyChicken" parent="Enemies" instance=ExtResource("4_1pkc5")]
-position = Vector2(32, 104)
+position = Vector2(104, 144)
+
+[node name="EnemyPath2D" parent="Enemies/EnemyChicken" index="0"]
+curve = SubResource("Curve2D_fpau6")
+
+[node name="EnemyGhost2" parent="Enemies" instance=ExtResource("5_xmjc7")]
+position = Vector2(72, 144)
+
+[node name="EnemyPath2D" parent="Enemies/EnemyGhost2" index="0"]
+curve = SubResource("Curve2D_k2a02")
+
+[node name="EnemyGhost" parent="Enemies" instance=ExtResource("5_xmjc7")]
+position = Vector2(120, 136)
+
+[node name="EnemyPath2D" parent="Enemies/EnemyGhost" index="0"]
+curve = SubResource("Curve2D_kd6q8")
+
+[editable path="Enemies/EnemyChicken2"]
+[editable path="Enemies/EnemyChicken"]
+[editable path="Enemies/EnemyGhost2"]
+[editable path="Enemies/EnemyGhost"]

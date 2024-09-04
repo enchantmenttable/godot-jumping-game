@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://cvchokirwnpbf"]
+
+[ext_resource type="Script" path="res://objects/remember_block.gd" id="1_qheff"]
+[ext_resource type="Texture2D" uid="uid://drw70p46fqlhr" path="res://assets/alphaBG_tileset.png" id="2_w0sdf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ud8cm"]
+radius = 2.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8o15"]
+atlas = ExtResource("2_w0sdf")
+region = Rect2(24, 48, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xf3sr"]
+atlas = ExtResource("2_w0sdf")
+region = Rect2(48, 56, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0dmx4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8o15")
+}],
+"loop": true,
+"name": &"active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xf3sr")
+}],
+"loop": true,
+"name": &"inactive",
+"speed": 5.0
+}]
+
+[node name="RememberBlock" type="Node2D"]
+script = ExtResource("1_qheff")
+
+[node name="ActivationTrigger" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActivationTrigger"]
+shape = SubResource("CircleShape2D_ud8cm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0dmx4")
+animation = &"inactive"
+autoplay = "inactive"
+
+[connection signal="area_entered" from="ActivationTrigger" to="." method="_on_activation_trigger_area_entered"]
