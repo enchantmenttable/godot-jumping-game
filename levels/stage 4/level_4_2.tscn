@@ -1,25 +1,27 @@
-[gd_scene load_steps=6 format=3 uid="uid://cfgvejctsftl6"]
+[gd_scene load_steps=7 format=3 uid="uid://cfgvejctsftl6"]
 
-[ext_resource type="PackedScene" uid="uid://c8wi3emhc27qq" path="res://components/game_manager.tscn" id="1_47mhh"]
-[ext_resource type="PackedScene" uid="uid://bjbc8bs5s25eb" path="res://player/player.tscn" id="2_2q4fr"]
-[ext_resource type="PackedScene" uid="uid://cdc53tunbbrki" path="res://tiles/tile_map_8x_8.tscn" id="3_0q5xw"]
-[ext_resource type="PackedScene" uid="uid://dm5hob3jj06ex" path="res://enemies/enemy_hard.tscn" id="4_t38ff"]
-[ext_resource type="PackedScene" uid="uid://ctduqbqmnby26" path="res://enemies/enemy_switch.tscn" id="5_k5cgo"]
+[ext_resource type="PackedScene" uid="uid://c8wi3emhc27qq" path="res://components/game_manager.tscn" id="1_eonlg"]
+[ext_resource type="PackedScene" uid="uid://cvuhg2tpgqqks" path="res://levels/stage 4/level_4_3.tscn" id="2_68wad"]
+[ext_resource type="PackedScene" uid="uid://bjbc8bs5s25eb" path="res://player/player.tscn" id="2_lyb36"]
+[ext_resource type="PackedScene" uid="uid://cdc53tunbbrki" path="res://tiles/tile_map_8x_8.tscn" id="3_yfixi"]
+[ext_resource type="PackedScene" uid="uid://dm5hob3jj06ex" path="res://enemies/enemy_hard.tscn" id="4_5p31f"]
+[ext_resource type="PackedScene" uid="uid://ctduqbqmnby26" path="res://enemies/enemy_switch.tscn" id="5_nmorq"]
 
-[node name="Level 5 - b" type="Node2D"]
+[node name="Level 4-2" type="Node2D"]
 metadata/_edit_lock_ = true
 
-[node name="GameManager" parent="." instance=ExtResource("1_47mhh")]
-final_level = true
+[node name="GameManager" parent="." instance=ExtResource("1_eonlg")]
+next_level = ExtResource("2_68wad")
+stage_id = 4
 metadata/_edit_lock_ = true
 
-[node name="Player" parent="." instance=ExtResource("2_2q4fr")]
+[node name="Player" parent="." instance=ExtResource("2_lyb36")]
 position = Vector2(32, 160)
 
 [node name="Tiles" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
-[node name="TilemapPlatform8x8" parent="Tiles" instance=ExtResource("3_0q5xw")]
+[node name="TilemapPlatform8x8" parent="Tiles" instance=ExtResource("3_yfixi")]
 layer_0/tile_data = PackedInt32Array(1376258, 262144, 1, 1376259, 262144, 1, 1572870, 262144, 1, 1572871, 262144, 1, 1572872, 262144, 1, 1572873, 262144, 1, 1572874, 262144, 1, 1572875, 262144, 1, 1572876, 262144, 1, 1572877, 262144, 1, 1572878, 262144, 1, 1572879, 262144, 1, 1572880, 262144, 1, 1572881, 262144, 1, 1507345, 262144, 1, 1507346, 262144, 1, 1441810, 262144, 1, 1441811, 262144, 1, 1376275, 262144, 1, 1310739, 262144, 1, 1245203, 262144, 1, 1179667, 262144, 1, 1114131, 262144, 1, 1048595, 262144, 1, 983059, 262144, 1, 983058, 262144, 1, 983042, 262144, 1, 917507, 262144, 1, 851972, 262144, 1, 786437, 262144, 1, 720902, 262144, 1, 720903, 262144, 1, 720904, 262144, 1, 720905, 262144, 1, 720906, 262144, 1, 720907, 262144, 1, 917506, 262144, 1, 851971, 262144, 1, 786436, 262144, 1, 720901, 262144, 1, 720908, 262144, 1, 720909, 262144, 1, 720910, 262144, 1, 720911, 262144, 1, 917522, 262144, 1, 917521, 262144, 1, 851985, 262144, 1, 851984, 262144, 1, 786448, 262144, 1, 786447, 262144, 1, 1376260, 262144, 1, 1507333, 262144, 1, 1441797, 262144, 1, 1507334, 262144, 1, 1441796, 262144, 1, 1048578, 262144, 1, 1114114, 262144, 1, 1179650, 262144, 1, 1245186, 262144, 1, 1310722, 262144, 1)
 metadata/_edit_lock_ = true
 
@@ -29,13 +31,13 @@ metadata/_edit_lock_ = true
 [node name="Enemies" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
-[node name="EnemyHard" parent="Enemies" instance=ExtResource("4_t38ff")]
+[node name="EnemyHard" parent="Enemies" instance=ExtResource("4_5p31f")]
 position = Vector2(64, 152)
 
-[node name="EnemySwitch" parent="Enemies" instance=ExtResource("5_k5cgo")]
+[node name="EnemySwitch" parent="Enemies" instance=ExtResource("5_nmorq")]
 position = Vector2(128, 152)
 
-[node name="EnemySwitch2" parent="Enemies" instance=ExtResource("5_k5cgo")]
+[node name="EnemySwitch2" parent="Enemies" instance=ExtResource("5_nmorq")]
 position = Vector2(96, 176)
 
 [node name="ToggleBlocks" type="Node2D" parent="."]

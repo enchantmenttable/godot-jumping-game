@@ -12,6 +12,7 @@
 
 [node name="GameManager" parent="." instance=ExtResource("1_7pwb8")]
 next_level = ExtResource("2_51wg7")
+stage_id = 3
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("2_3li1k")]

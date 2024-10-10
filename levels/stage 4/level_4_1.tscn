@@ -1,24 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://b261kssgrw6mq"]
+[gd_scene load_steps=6 format=3 uid="uid://b261kssgrw6mq"]
 
-[ext_resource type="PackedScene" uid="uid://c8wi3emhc27qq" path="res://components/game_manager.tscn" id="1_y84df"]
-[ext_resource type="PackedScene" uid="uid://bjbc8bs5s25eb" path="res://player/player.tscn" id="2_a4cjw"]
-[ext_resource type="PackedScene" uid="uid://cdc53tunbbrki" path="res://tiles/tile_map_8x_8.tscn" id="3_djf5y"]
-[ext_resource type="PackedScene" uid="uid://ctduqbqmnby26" path="res://enemies/enemy_switch.tscn" id="4_c05ad"]
+[ext_resource type="PackedScene" uid="uid://c8wi3emhc27qq" path="res://components/game_manager.tscn" id="1_gejka"]
+[ext_resource type="PackedScene" uid="uid://cfgvejctsftl6" path="res://levels/stage 4/level_4_2.tscn" id="2_ap321"]
+[ext_resource type="PackedScene" uid="uid://bjbc8bs5s25eb" path="res://player/player.tscn" id="2_tdoua"]
+[ext_resource type="PackedScene" uid="uid://cdc53tunbbrki" path="res://tiles/tile_map_8x_8.tscn" id="3_y0axm"]
+[ext_resource type="PackedScene" uid="uid://ctduqbqmnby26" path="res://enemies/enemy_switch.tscn" id="4_xot5a"]
 
-[node name="Level-4a" type="Node2D"]
+[node name="Level 4-1" type="Node2D"]
 metadata/_edit_lock_ = true
 
-[node name="GameManager" parent="." instance=ExtResource("1_y84df")]
-final_level = true
+[node name="GameManager" parent="." instance=ExtResource("1_gejka")]
+next_level = ExtResource("2_ap321")
+stage_id = 4
 metadata/_edit_lock_ = true
 
-[node name="Player" parent="." instance=ExtResource("2_a4cjw")]
+[node name="Player" parent="." instance=ExtResource("2_tdoua")]
 position = Vector2(24, 112)
 
 [node name="Tiles" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
-[node name="TilemapPlatform8x8" parent="Tiles" instance=ExtResource("3_djf5y")]
+[node name="TilemapPlatform8x8" parent="Tiles" instance=ExtResource("3_y0axm")]
 layer_0/tile_data = PackedInt32Array(983041, 262144, 1, 983042, 262144, 1, 917505, 262144, 1, 851969, 262144, 1, 786433, 262144, 1, 720897, 262144, 1, 655361, 262144, 1, 589825, 262144, 1, 524289, 262144, 1, 458753, 262144, 1, 458754, 262144, 1, 458755, 262144, 1, 458756, 262144, 1, 458757, 262144, 1, 458758, 262144, 1, 458759, 262144, 1, 458760, 262144, 1, 458761, 262144, 1, 458762, 262144, 1, 458763, 262144, 1, 458764, 262144, 1, 458765, 262144, 1, 458766, 262144, 1, 458767, 262144, 1, 458768, 262144, 1, 458769, 262144, 1, 458770, 262144, 1, 458771, 262144, 1, 458772, 262144, 1, 524308, 262144, 1, 589844, 262144, 1, 655380, 262144, 1, 720916, 262144, 1, 786452, 262144, 1, 851988, 262144, 1, 917524, 262144, 1, 983060, 262144, 1, 1048596, 262144, 1, 1114132, 262144, 1, 1179668, 262144, 1, 1179653, 262144, 1, 1179654, 262144, 1, 1179655, 262144, 1, 1179656, 262144, 1, 1179657, 262144, 1, 1179658, 262144, 1, 1179659, 262144, 1, 1179660, 262144, 1, 1179661, 262144, 1, 1179662, 262144, 1, 1179663, 262144, 1, 1179664, 262144, 1, 1179665, 262144, 1, 1179666, 262144, 1, 1179667, 262144, 1, 1179652, 262144, 1, 1179651, 262144, 1, 1179650, 262144, 1, 1179649, 262144, 1, 1048577, 262144, 1, 1114113, 262144, 1, 983043, 262144, 1)
 metadata/_edit_lock_ = true
 
@@ -28,13 +30,13 @@ metadata/_edit_lock_ = true
 [node name="Enemies" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
-[node name="EnemySwitch" parent="Enemies" instance=ExtResource("4_c05ad")]
+[node name="EnemySwitch" parent="Enemies" instance=ExtResource("4_xot5a")]
 position = Vector2(88, 112)
 
-[node name="EnemySwitch2" parent="Enemies" instance=ExtResource("4_c05ad")]
+[node name="EnemySwitch2" parent="Enemies" instance=ExtResource("4_xot5a")]
 position = Vector2(120, 112)
 
-[node name="EnemySwitch3" parent="Enemies" instance=ExtResource("4_c05ad")]
+[node name="EnemySwitch3" parent="Enemies" instance=ExtResource("4_xot5a")]
 position = Vector2(56, 112)
 current_phase = "Closed"
 

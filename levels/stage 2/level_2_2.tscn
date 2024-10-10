@@ -29,6 +29,7 @@ point_count = 4
 
 [node name="GameManager" parent="." instance=ExtResource("1_jvs6k")]
 next_level = ExtResource("2_qromk")
+stage_id = 2
 
 [node name="Player" parent="." instance=ExtResource("2_8ecrs")]
 position = Vector2(40, 136)
@@ -47,7 +48,7 @@ position = Vector2(64, 104)
 position = Vector2(1, 0)
 scale = Vector2(1, 0.818182)
 curve = SubResource("Curve2D_128el")
-speed = 0.32
+speed = 0.25
 
 [node name="EnemyChicken" parent="Enemies" instance=ExtResource("4_d5mbp")]
 position = Vector2(96, 120)
@@ -56,7 +57,7 @@ position = Vector2(96, 120)
 position = Vector2(0, -2.90909)
 scale = Vector2(1, 0.818182)
 curve = SubResource("Curve2D_was4p")
-speed = 0.32
+speed = 0.25
 
 [node name="EnemyChicken3" parent="Enemies" instance=ExtResource("4_d5mbp")]
 position = Vector2(128, 136)
@@ -65,7 +66,7 @@ position = Vector2(128, 136)
 position = Vector2(0, -5.81818)
 scale = Vector2(1, 0.818182)
 curve = SubResource("Curve2D_iyhyu")
-speed = 0.32
+speed = 0.25
 
 [node name="EnemyGhost" parent="Enemies" instance=ExtResource("5_0fsvx")]
 position = Vector2(64, 72)

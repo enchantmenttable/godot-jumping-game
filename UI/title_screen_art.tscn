@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dy01x7vx7faur"]
+
+[ext_resource type="Texture2D" uid="uid://drw70p46fqlhr" path="res://assets/alphaBG_tileset.png" id="1_kf17x"]
+
+[node name="TitleScreenArt" type="Node2D"]
+
+[node name="AlphaBgTileset" type="Sprite2D" parent="."]
+position = Vector2(48, 136)
+texture = ExtResource("1_kf17x")
+region_enabled = true
+region_rect = Rect2(8, 0, 8, 64)

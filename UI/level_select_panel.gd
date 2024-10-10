@@ -25,7 +25,6 @@ func _ready():
 	]
 
 	current_progress = SaveData.new().load_data().current_progress
-	print(current_progress)
 	_level_nodes_setup()
 
 func _level_nodes_setup():

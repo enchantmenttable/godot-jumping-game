@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var final_level : bool = false
+@export var final_stage : bool = false
 @export var next_level : PackedScene
 @export var global_level_id : int
 var next_level_path : String
@@ -9,6 +10,8 @@ var next_level_path : String
 
 var enemy_count : int
 var ghost_count : int
+
+@onready var pause_menu: CanvasLayer = $PauseMenu
 
 var pitch_scale = 0
 @onready var enemy_got_jumped_neg_40 = $"SoundHolder/EnemyGotJumped-neg40"
@@ -33,6 +36,8 @@ var enemy_switch_count = 0
 var total_enemy_count = 0
 
 func _ready():
+	pause_menu.hide()
+
 	Messenger.enemy_gets_jumped.connect(_enemy_gets_jumped.bind())
 	Messenger.player_forbidden_touch.connect(_player_forbidden_touch)
 
@@ -68,8 +73,6 @@ func _count_enemies():
 func _process(_float): # testing purpose
 	if Input.is_action_just_pressed("restart"):
 		get_tree().call_deferred("reload_current_scene")
-	if Input.is_action_just_pressed("quit_game"):
-		get_tree().quit()
 
 var forbidden_touch_triggered = 0
 func _player_forbidden_touch():
@@ -124,4 +127,6 @@ func _on_die_finished():
 func save_progress():
 	var data = SaveData.new().load_data()
 	data.current_progress += 1
+	if final_level and final_stage:
+		data.won = true
 	data.save_data()

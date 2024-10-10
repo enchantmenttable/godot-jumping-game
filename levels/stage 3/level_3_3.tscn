@@ -42,6 +42,7 @@ point_count = 3
 
 [node name="GameManager" parent="." instance=ExtResource("1_8m45k")]
 next_level = ExtResource("2_fxpjv")
+stage_id = 3
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("2_23trp")]

@@ -1,0 +1,161 @@
+[gd_scene load_steps=11 format=3 uid="uid://byokdm5fqbu6h"]
+
+[ext_resource type="PackedScene" uid="uid://c8wi3emhc27qq" path="res://components/game_manager.tscn" id="1_anxo5"]
+[ext_resource type="PackedScene" uid="uid://bjbc8bs5s25eb" path="res://player/player.tscn" id="2_2ng5s"]
+[ext_resource type="PackedScene" uid="uid://bg5l53iq2lnd1" path="res://levels/stage 4/level_4_5.tscn" id="2_wwgnl"]
+[ext_resource type="PackedScene" uid="uid://cdc53tunbbrki" path="res://tiles/tile_map_8x_8.tscn" id="3_mfjow"]
+[ext_resource type="Texture2D" uid="uid://drw70p46fqlhr" path="res://assets/alphaBG_tileset.png" id="4_og6m3"]
+[ext_resource type="PackedScene" uid="uid://ctduqbqmnby26" path="res://enemies/enemy_switch.tscn" id="5_v8f8i"]
+[ext_resource type="PackedScene" uid="uid://dm5hob3jj06ex" path="res://enemies/enemy_hard.tscn" id="6_d16fq"]
+[ext_resource type="PackedScene" uid="uid://cqr8xa4t7cvxe" path="res://enemies/enemy_chicken.tscn" id="7_7qkfe"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_33hl5"]
+texture = ExtResource("4_og6m3")
+texture_region_size = Vector2i(8, 8)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+3:1/0/terrain_set = 0
+3:1/0/terrain = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 3, -4, 3)
+3:1/0/terrains_peering_bit/right_side = 0
+4:1/0 = 0
+4:1/0/terrain_set = 0
+4:1/0/terrain = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 3, -4, 3)
+4:1/0/terrains_peering_bit/right_side = 0
+4:1/0/terrains_peering_bit/left_side = 0
+5:1/0 = 0
+5:1/0/terrain_set = 0
+5:1/0/terrain = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 3, -4, 3)
+5:1/0/terrains_peering_bit/left_side = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 0, -4, 0)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, -1, -4, -1)
+3:2/0/physics_layer_0/polygon_0/one_way = true
+4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, -1, -4, -1)
+4:2/0/physics_layer_0/polygon_0/one_way = true
+5:2/0 = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, -1, -4, -1)
+5:2/0/physics_layer_0/polygon_0/one_way = true
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+1:3/0 = 0
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+1:4/0 = 0
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+2:4/0 = 0
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+7:5/0 = 0
+7:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+
+[sub_resource type="TileSet" id="TileSet_lccv2"]
+tile_size = Vector2i(8, 8)
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 2
+terrain_set_0/mode = 2
+terrain_set_0/terrain_0/name = "basic"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+sources/0 = SubResource("TileSetAtlasSource_33hl5")
+
+[node name="Level 4-4" type="Node2D"]
+
+[node name="GameManager" parent="." instance=ExtResource("1_anxo5")]
+next_level = ExtResource("2_wwgnl")
+stage_id = 4
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." instance=ExtResource("2_2ng5s")]
+position = Vector2(91, 124)
+
+[node name="Tiles" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="TilemapPlatform8x8" parent="Tiles" instance=ExtResource("3_mfjow")]
+tile_set = SubResource("TileSet_lccv2")
+layer_0/tile_data = PackedInt32Array(1114123, 262144, 1, 1114122, 262144, 1, 1048587, 262144, 1, 1179660, 262144, 1, 1179659, 262144, 1, 1179658, 262144, 1, 1179657, 262144, 1, 1114124, 262144, 1, 1179661, 262144, 1, 1048595, 262144, 1, 1114131, 262144, 1, 1179667, 262144, 1, 1245203, 262144, 1, 1310739, 262144, 1, 1376275, 262144, 1, 1441811, 262144, 1, 1507347, 262144, 1, 1638403, 262144, 1, 1572867, 262144, 1, 1507331, 262144, 1, 1441795, 262144, 1, 1376259, 262144, 1, 1310723, 262144, 1, 1245187, 262144, 1, 1179651, 262144, 1, 1114115, 262144, 1, 1048579, 262144, 1, 983043, 262144, 1, 851971, 262144, 1, 917507, 262144, 1, 1835013, 262144, 1, 1835014, 262144, 1, 1835015, 262144, 1, 1835016, 262144, 1, 1835017, 262144, 1, 1835018, 262144, 1, 1835019, 262144, 1, 1835020, 262144, 1, 1835021, 262144, 1, 1703939, 262144, 1, 1835022, 262144, 1, 1835023, 262144, 1, 1835024, 262144, 1, 1572883, 262144, 1, 1638419, 262144, 1, 1703955, 262144, 1, 1703953, 262144, 1, 1703952, 262144, 1, 1769488, 262144, 1, 1703954, 262144, 1, 1769475, 262144, 1, 1769477, 262144, 1, 1769476, 262144, 1, 786435, 262144, 1, 720899, 262144, 1, 983059, 262144, 1, 917523, 262144, 1, 851987, 262144, 1, 786451, 262144, 1, 720914, 262144, 1, 786450, 262144, 1, 589827, 262144, 1, 655363, 262144, 1, 524292, 262144, 1, 458758, 262144, 1, 458767, 262144, 1, 524303, 262144, 1, 589842, 262144, 1, 655378, 262144, 1, 589828, 262144, 1, 524293, 262144, 1, 524294, 262144, 1, 458759, 262144, 1, 458760, 262144, 1, 458761, 262144, 1, 458762, 262144, 1, 458763, 262144, 1, 458764, 262144, 1, 458765, 262144, 1, 458766, 262144, 1, 589839, 262144, 1, 589840, 262144, 1, 589841, 262144, 1)
+metadata/_edit_lock_ = true
+
+[node name="Objects" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Enemies" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="EnemySwitch" parent="Enemies" instance=ExtResource("5_v8f8i")]
+position = Vector2(56, 120)
+
+[node name="EnemySwitch2" parent="Enemies" instance=ExtResource("5_v8f8i")]
+position = Vector2(96, 192)
+current_phase = "Closed"
+
+[node name="EnemyHard" parent="Enemies" instance=ExtResource("6_d16fq")]
+position = Vector2(56, 200)
+
+[node name="EnemyChicken" parent="Enemies" instance=ExtResource("7_7qkfe")]
+position = Vector2(128, 176)
+
+[node name="EnemyHard2" parent="Enemies" instance=ExtResource("6_d16fq")]
+position = Vector2(128, 136)
+
+[node name="ToggleBlocks" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="RemBlocks" type="Node2D" parent="."]
+metadata/_edit_lock_ = true

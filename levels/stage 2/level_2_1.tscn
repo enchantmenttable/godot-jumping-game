@@ -11,6 +11,7 @@
 
 [node name="GameManager" parent="." instance=ExtResource("1_jf5mj")]
 next_level = ExtResource("2_qghs3")
+stage_id = 2
 
 [node name="Player" parent="." instance=ExtResource("2_mll1o")]
 position = Vector2(94, 108)

@@ -39,4 +39,10 @@ func got_jumped():
 			_die()
 
 func _die():
-	queue_free()
+	enemy_path_2d.speed = 0
+	anim.play("die")
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if anim.animation == "die":
+		queue_free()

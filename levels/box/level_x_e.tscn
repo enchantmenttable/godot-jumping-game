@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://bchradhnovhu4"]
 
-[ext_resource type="PackedScene" uid="uid://c8wi3emhc27qq" path="res://components/game_manager.tscn" id="1_fdnys"]
-[ext_resource type="PackedScene" uid="uid://bjbc8bs5s25eb" path="res://player/player.tscn" id="2_5fppi"]
-[ext_resource type="PackedScene" uid="uid://cdc53tunbbrki" path="res://tiles/tile_map_8x_8.tscn" id="3_g1u18"]
-[ext_resource type="PackedScene" uid="uid://dm5hob3jj06ex" path="res://enemies/enemy_hard.tscn" id="5_o6pel"]
-[ext_resource type="PackedScene" uid="uid://w8kga06cwx8g" path="res://objects/bouncy_head.tscn" id="6_kgoiw"]
-[ext_resource type="PackedScene" uid="uid://ctduqbqmnby26" path="res://enemies/enemy_switch.tscn" id="7_582y1"]
+[ext_resource type="PackedScene" uid="uid://c8wi3emhc27qq" path="res://components/game_manager.tscn" id="1_yn6g2"]
+[ext_resource type="PackedScene" uid="uid://bjbc8bs5s25eb" path="res://player/player.tscn" id="2_lsw8r"]
+[ext_resource type="PackedScene" uid="uid://cdc53tunbbrki" path="res://tiles/tile_map_8x_8.tscn" id="3_tfo34"]
+[ext_resource type="PackedScene" uid="uid://dm5hob3jj06ex" path="res://enemies/enemy_hard.tscn" id="4_lio5m"]
+[ext_resource type="PackedScene" uid="uid://w8kga06cwx8g" path="res://objects/bouncy_head.tscn" id="5_63yc2"]
+[ext_resource type="PackedScene" uid="uid://ctduqbqmnby26" path="res://enemies/enemy_switch.tscn" id="6_t0cx3"]
 
 [sub_resource type="Curve2D" id="Curve2D_8img4"]
 _data = {
@@ -22,17 +22,17 @@ point_count = 3
 [node name="Level 5 - c" type="Node2D"]
 metadata/_edit_lock_ = true
 
-[node name="GameManager" parent="." instance=ExtResource("1_fdnys")]
+[node name="GameManager" parent="." instance=ExtResource("1_yn6g2")]
 final_level = true
 metadata/_edit_lock_ = true
 
-[node name="Player" parent="." instance=ExtResource("2_5fppi")]
+[node name="Player" parent="." instance=ExtResource("2_lsw8r")]
 position = Vector2(40, 80)
 
 [node name="Tiles" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
-[node name="TilemapPlatform8x8" parent="Tiles" instance=ExtResource("3_g1u18")]
+[node name="TilemapPlatform8x8" parent="Tiles" instance=ExtResource("3_tfo34")]
 layer_0/tile_data = PackedInt32Array(720900, 262144, 1, 720901, 262144, 1, 851971, 262144, 1, 917507, 262144, 1, 983043, 262144, 1, 1048579, 262144, 1, 1245195, 262144, 1, 1245196, 262144, 1, 1245197, 262144, 1, 1245198, 262144, 1, 1245199, 262144, 1, 1245200, 262144, 1, 1245201, 262144, 1, 1179666, 262144, 1, 1114130, 262144, 1, 1048594, 262144, 1, 983058, 262144, 1, 917522, 262144, 1, 720898, 262144, 1, 655362, 262144, 1, 589826, 262144, 1, 720915, 262144, 1, 524307, 262144, 1, 589843, 262144, 1, 655379, 262144, 1, 851970, 262144, 1, 786434, 262144, 1, 851987, 262144, 1, 786451, 262144, 1, 851986, 262144, 1, 1179652, 262144, 1, 1179653, 262144, 1, 1114115, 262144, 1, 1179651, 262144, 1, 1245188, 262144, 1, 1245189, 262144, 1, 1245190, 262144, 1, 1245191, 262144, 1, 1245192, 262144, 1, 1245193, 262144, 1, 1245194, 262144, 1, 1179665, 262144, 1, 1179664, 262144, 1, 524290, 262144, 1, 131086, 262144, 1, 131087, 262144, 1, 458770, 262144, 1, 393234, 262144, 1, 327697, 262144, 1, 262161, 262144, 1, 196624, 262144, 1, 262160, 262144, 1, 393233, 262144, 1, 524306, 262144, 1, 131079, 262144, 1, 131078, 262144, 1, 524291, 262144, 1, 458755, 262144, 1, 393219, 262144, 1, 393220, 262144, 1, 327684, 262144, 1, 262148, 262144, 1, 262149, 262144, 1, 196613, 262144, 1, 196614, 262144, 1, 196623, 262144, 1, 65543, 262144, 1, 65544, 262144, 1, 65545, 262144, 1, 65546, 262144, 1, 65547, 262144, 1, 65548, 262144, 1, 65549, 262144, 1, 65550, 262144, 1)
 metadata/_edit_lock_ = true
 
@@ -42,25 +42,25 @@ metadata/_edit_lock_ = true
 [node name="Enemies" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
-[node name="EnemyHard" parent="Enemies" instance=ExtResource("5_o6pel")]
-position = Vector2(88, 64)
+[node name="EnemyHard" parent="Enemies" instance=ExtResource("4_lio5m")]
+position = Vector2(64, 80)
 
-[node name="BouncyHead" parent="Enemies" instance=ExtResource("6_kgoiw")]
-position = Vector2(88, 112)
+[node name="BouncyHead" parent="Enemies" instance=ExtResource("5_63yc2")]
+position = Vector2(96, 112)
 
-[node name="EnemySwitch" parent="Enemies" instance=ExtResource("7_582y1")]
-position = Vector2(56, 128)
+[node name="EnemySwitch" parent="Enemies" instance=ExtResource("6_t0cx3")]
+position = Vector2(64, 128)
 
 [node name="EnemyPath2D" parent="Enemies/EnemySwitch" index="0"]
 curve = SubResource("Curve2D_8img4")
 speed = 0.18
 
-[node name="EnemySwitch2" parent="Enemies" instance=ExtResource("7_582y1")]
-position = Vector2(120, 96)
+[node name="EnemySwitch2" parent="Enemies" instance=ExtResource("6_t0cx3")]
+position = Vector2(128, 96)
 
 [node name="EnemyPath2D" parent="Enemies/EnemySwitch2" index="0"]
 curve = SubResource("Curve2D_c426m")
-speed = 0.15
+speed = 0.18
 
 [node name="ToggleBlocks" type="Node2D" parent="."]
 metadata/_edit_lock_ = true

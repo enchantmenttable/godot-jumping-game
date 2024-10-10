@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dbv6laci2w84b"]
+[gd_scene load_steps=8 format=3 uid="uid://dbv6laci2w84b"]
 
 [ext_resource type="Script" path="res://levels/stage_select.gd" id="1_c23gg"]
 [ext_resource type="PackedScene" uid="uid://cdc53tunbbrki" path="res://tiles/tile_map_8x_8.tscn" id="1_mv40d"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ysphu3akq82j" path="res://objects/stage_door.tscn" id="4_d22po"]
 [ext_resource type="Texture2D" uid="uid://oh6w258rreak" path="res://assets/roman numbers.png" id="5_5kfec"]
 [ext_resource type="PackedScene" uid="uid://2elwl88oiovu" path="res://objects/menu_door.tscn" id="6_xv5ws"]
+[ext_resource type="FontFile" uid="uid://d5mt76lp83ts" path="res://assets/monogram.ttf" id="7_dc04g"]
 
 [node name="StageSelect" type="Node2D"]
 script = ExtResource("1_c23gg")
@@ -88,6 +89,15 @@ region_rect = Rect2(0, 10, 5, 4)
 position = Vector2(81, 180)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="thanks" type="Label" parent="."]
+visible = false
+offset_left = 24.0
+offset_top = 51.0
+offset_right = 150.0
+offset_bottom = 74.0
+theme_override_fonts/font = ExtResource("7_dc04g")
+text = "thank you for playing"
 
 [editable path="Doors/StageDoor1"]
 [editable path="Doors/StageDoor2"]

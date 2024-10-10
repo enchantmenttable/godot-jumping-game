@@ -35,6 +35,7 @@ point_count = 5
 
 [node name="GameManager" parent="." instance=ExtResource("1_jvs6k")]
 next_level = ExtResource("2_0iyjn")
+stage_id = 2
 
 [node name="Player" parent="." instance=ExtResource("2_8ecrs")]
 position = Vector2(32, 96)
@@ -55,6 +56,7 @@ position = Vector2(56, 128)
 [node name="EnemyPath2D" parent="Enemies/EnemyChicken" index="0"]
 visible = false
 curve = SubResource("Curve2D_k32n2")
+speed = 0.16
 
 [node name="EnemyChicken2" parent="Enemies" instance=ExtResource("4_d5mbp")]
 position = Vector2(120, 192)
@@ -62,6 +64,7 @@ position = Vector2(120, 192)
 [node name="EnemyPath2D" parent="Enemies/EnemyChicken2" index="0"]
 visible = false
 curve = SubResource("Curve2D_7hh53")
+speed = 0.16
 
 [node name="EnemyGhost" parent="Enemies" instance=ExtResource("5_0fsvx")]
 position = Vector2(120, 128)
@@ -69,12 +72,14 @@ position = Vector2(120, 128)
 [node name="EnemyPath2D" parent="Enemies/EnemyGhost" index="0"]
 visible = false
 curve = SubResource("Curve2D_s4reh")
+speed = 0.16
 
 [node name="EnemyGhost2" parent="Enemies" instance=ExtResource("5_0fsvx")]
 position = Vector2(56, 192)
 
 [node name="EnemyPath2D" parent="Enemies/EnemyGhost2" index="0"]
 curve = SubResource("Curve2D_fxjoc")
+speed = 0.16
 
 [node name="EnemyChicken3" parent="Enemies" instance=ExtResource("4_d5mbp")]
 position = Vector2(88, 160)

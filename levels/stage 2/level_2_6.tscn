@@ -10,6 +10,7 @@
 
 [node name="GameManager" parent="." instance=ExtResource("1_b10xw")]
 final_level = true
+stage_id = 2
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("2_omthd")]

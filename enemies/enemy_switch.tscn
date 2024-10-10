@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://ctduqbqmnby26"]
+[gd_scene load_steps=15 format=3 uid="uid://ctduqbqmnby26"]
 
 [ext_resource type="Script" path="res://enemies/enemy_switch.gd" id="1_34ao0"]
 [ext_resource type="PackedScene" uid="uid://cl6ckv2w8ao01" path="res://components/enemy_path_2d.tscn" id="1_tdij4"]
 [ext_resource type="PackedScene" uid="uid://cg1i6wnm3s4w1" path="res://components/jump_on_part.tscn" id="2_iew27"]
 [ext_resource type="Texture2D" uid="uid://qgge06n2cwae" path="res://assets/switch.png" id="3_pav68"]
+[ext_resource type="Texture2D" uid="uid://bei1b53p82osm" path="res://assets/effects/enemy_die_1.png" id="4_8e0t2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d8ubo"]
 atlas = ExtResource("3_pav68")
@@ -20,6 +21,18 @@ region = Rect2(0, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_07y0l"]
 atlas = ExtResource("3_pav68")
 region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tq8hi"]
+atlas = ExtResource("4_8e0t2")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edtjq"]
+atlas = ExtResource("4_8e0t2")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1y7b"]
+atlas = ExtResource("4_8e0t2")
+region = Rect2(16, 0, 8, 8)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u1l81"]
 animations = [{
@@ -44,6 +57,20 @@ animations = [{
 "loop": true,
 "name": &"Open",
 "speed": 2.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tq8hi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edtjq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1y7b")
+}],
+"loop": false,
+"name": &"die",
+"speed": 8.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_solx4"]
@@ -61,6 +88,7 @@ remote_node = NodePath("../Body")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Body"]
 sprite_frames = SubResource("SpriteFrames_u1l81")
 animation = &"Open"
+autoplay = "Open"
 
 [node name="SwitchSide" type="Timer" parent="Body/AnimatedSprite2D"]
 
@@ -69,3 +97,5 @@ animation = &"Open"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body/JumpOnPart"]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_solx4")
+
+[connection signal="animation_finished" from="Body/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

@@ -17,6 +17,7 @@ point_count = 3
 
 [node name="GameManager" parent="." instance=ExtResource("1_gqj7g")]
 next_level = ExtResource("2_d14xr")
+stage_id = 2
 
 [node name="Player" parent="." instance=ExtResource("2_hrbj0")]
 position = Vector2(80, 112)

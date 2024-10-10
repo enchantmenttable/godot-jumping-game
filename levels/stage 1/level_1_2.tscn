@@ -12,7 +12,7 @@
 next_level = ExtResource("2_pdlam")
 
 [node name="Player" parent="." instance=ExtResource("2_visj7")]
-position = Vector2(48, 96)
+position = Vector2(48, 100)
 
 [node name="Tiles" type="Node2D" parent="."]
 

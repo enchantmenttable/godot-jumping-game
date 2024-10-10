@@ -1,13 +1,39 @@
-[gd_scene load_steps=10 format=3 uid="uid://ybpattqa3fw7"]
+[gd_scene load_steps=18 format=3 uid="uid://ybpattqa3fw7"]
 
 [ext_resource type="PackedScene" uid="uid://cl6ckv2w8ao01" path="res://components/enemy_path_2d.tscn" id="1_6uaau"]
 [ext_resource type="Script" path="res://enemies/enemy_ghost.gd" id="1_rxsku"]
 [ext_resource type="Texture2D" uid="uid://drw70p46fqlhr" path="res://assets/alphaBG_tileset.png" id="2_2j7ch"]
+[ext_resource type="Texture2D" uid="uid://bei1b53p82osm" path="res://assets/effects/enemy_die_1.png" id="3_mi5ey"]
 [ext_resource type="PackedScene" uid="uid://cg1i6wnm3s4w1" path="res://components/jump_on_part.tscn" id="3_p2kh5"]
+[ext_resource type="Texture2D" uid="uid://davn87ai780m" path="res://assets/ghost-anim.png" id="4_4gppl"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_t3n7j"]
-atlas = ExtResource("2_2j7ch")
-region = Rect2(16, 48, 8, 8)
+[sub_resource type="AtlasTexture" id="AtlasTexture_5uuhe"]
+atlas = ExtResource("3_mi5ey")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qf8o6"]
+atlas = ExtResource("3_mi5ey")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7u5we"]
+atlas = ExtResource("3_mi5ey")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldqiq"]
+atlas = ExtResource("4_4gppl")
+region = Rect2(0, 0, 7, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1owr"]
+atlas = ExtResource("4_4gppl")
+region = Rect2(7, 0, 7, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ko8y6"]
+atlas = ExtResource("4_4gppl")
+region = Rect2(14, 0, 7, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gt3l6"]
+atlas = ExtResource("4_4gppl")
+region = Rect2(21, 0, 7, 10)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_phbic"]
 atlas = ExtResource("2_2j7ch")
@@ -21,11 +47,34 @@ region = Rect2(0, 48, 8, 8)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_t3n7j")
+"texture": SubResource("AtlasTexture_5uuhe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qf8o6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7u5we")
 }],
 "loop": false,
+"name": &"die",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldqiq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1owr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ko8y6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gt3l6")
+}],
+"loop": true,
 "name": &"spirit",
-"speed": 2.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -56,6 +105,7 @@ speed = 0.22
 sprite_frames = SubResource("SpriteFrames_twuux")
 animation = &"spirit"
 autoplay = "spirit"
+frame_progress = 0.251658
 
 [node name="JumpOnPart" parent="Body" instance=ExtResource("3_p2kh5")]
 
@@ -63,3 +113,5 @@ autoplay = "spirit"
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_mprcc")
 disabled = true
+
+[connection signal="animation_finished" from="Body/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

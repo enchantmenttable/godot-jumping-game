@@ -1,10 +1,23 @@
-[gd_scene load_steps=12 format=3 uid="uid://dm5hob3jj06ex"]
+[gd_scene load_steps=16 format=3 uid="uid://dm5hob3jj06ex"]
 
 [ext_resource type="Script" path="res://enemies/enemy_hard.gd" id="1_3c42l"]
 [ext_resource type="PackedScene" uid="uid://cl6ckv2w8ao01" path="res://components/enemy_path_2d.tscn" id="1_h6lhs"]
 [ext_resource type="Texture2D" uid="uid://drw70p46fqlhr" path="res://assets/alphaBG_tileset.png" id="2_b2ve3"]
 [ext_resource type="Texture2D" uid="uid://vagi5aevmbk4" path="res://assets/hard_enemy.png" id="3_6sape"]
+[ext_resource type="Texture2D" uid="uid://bei1b53p82osm" path="res://assets/effects/enemy_die_1.png" id="3_o056j"]
 [ext_resource type="PackedScene" uid="uid://cg1i6wnm3s4w1" path="res://components/jump_on_part.tscn" id="4_triw8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3urk"]
+atlas = ExtResource("3_o056j")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a74x0"]
+atlas = ExtResource("3_o056j")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3iox8"]
+atlas = ExtResource("3_o056j")
+region = Rect2(16, 0, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vimll"]
 atlas = ExtResource("3_6sape")
@@ -26,9 +39,23 @@ region = Rect2(8, 48, 8, 8)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vimll")
+"texture": SubResource("AtlasTexture_y3urk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a74x0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3iox8")
 }],
 "loop": false,
+"name": &"die",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vimll")
+}],
+"loop": true,
 "name": &"hard",
 "speed": 2.0
 }, {
@@ -36,7 +63,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yonqu")
 }],
-"loop": false,
+"loop": true,
 "name": &"intangible",
 "speed": 5.0
 }, {
@@ -75,3 +102,5 @@ autoplay = "hard"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body/JumpOnPart"]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_jwtar")
+
+[connection signal="animation_finished" from="Body/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

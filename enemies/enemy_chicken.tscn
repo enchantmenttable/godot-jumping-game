@@ -1,10 +1,23 @@
-[gd_scene load_steps=14 format=3 uid="uid://cqr8xa4t7cvxe"]
+[gd_scene load_steps=18 format=3 uid="uid://cqr8xa4t7cvxe"]
 
-[ext_resource type="Script" path="res://enemies/enemy.gd" id="1_dr6fo"]
+[ext_resource type="Script" path="res://enemies/enemy_chicken.gd" id="1_dr6fo"]
 [ext_resource type="PackedScene" uid="uid://cl6ckv2w8ao01" path="res://components/enemy_path_2d.tscn" id="1_r00ur"]
 [ext_resource type="PackedScene" uid="uid://cg1i6wnm3s4w1" path="res://components/jump_on_part.tscn" id="2_pg3jk"]
+[ext_resource type="Texture2D" uid="uid://bei1b53p82osm" path="res://assets/effects/enemy_die_1.png" id="3_bpqoc"]
 [ext_resource type="Texture2D" uid="uid://cj65pkamxrg78" path="res://assets/enemies_tileset.png" id="3_g03tl"]
 [ext_resource type="Texture2D" uid="uid://drw70p46fqlhr" path="res://assets/alphaBG_tileset.png" id="3_hq752"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wshc5"]
+atlas = ExtResource("3_bpqoc")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_del5n"]
+atlas = ExtResource("3_bpqoc")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqmga"]
+atlas = ExtResource("3_bpqoc")
+region = Rect2(16, 0, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vh5oe"]
 atlas = ExtResource("3_g03tl")
@@ -32,6 +45,20 @@ region = Rect2(8, 48, 8, 8)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kc1ky"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wshc5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_del5n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cqmga")
+}],
+"loop": false,
+"name": &"die",
+"speed": 8.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vh5oe")
@@ -78,7 +105,7 @@ speed = 0.22
 position = Vector2(0, 2)
 sprite_frames = SubResource("SpriteFrames_kc1ky")
 animation = &"idle"
-frame_progress = 0.189997
+autoplay = "idle"
 
 [node name="SwitchSide" type="Timer" parent="Body/AnimatedSprite2D"]
 
@@ -86,3 +113,5 @@ frame_progress = 0.189997
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body/JumpOnPart"]
 shape = SubResource("RectangleShape2D_b56po")
+
+[connection signal="animation_finished" from="Body/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

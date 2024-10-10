@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c8wi3emhc27qq"]
+[gd_scene load_steps=15 format=3 uid="uid://c8wi3emhc27qq"]
 
 [ext_resource type="Script" path="res://components/game_manager.gd" id="1_hdbsq"]
 [ext_resource type="AudioStream" uid="uid://t7ren381aera" path="res://assets/sound/cartoon-jump-neg40.wav" id="2_dgiqe"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://brpfd82p5pv11" path="res://assets/sound/yay-92370.mp3" id="11_xfwil"]
 [ext_resource type="AudioStream" uid="uid://busut0vh3pqrq" path="res://assets/sound/game-over-arcade-6435.mp3" id="11_ypg6f"]
 [ext_resource type="PackedScene" uid="uid://wxkixyuxoq8d" path="res://components/sound_manager.tscn" id="13_55500"]
+[ext_resource type="PackedScene" uid="uid://b56nd67lu0bsb" path="res://UI/pause_menu.tscn" id="14_s1qmo"]
 
 [node name="GameManager" type="Node2D"]
 script = ExtResource("1_hdbsq")
@@ -53,6 +54,8 @@ stream = ExtResource("11_xfwil")
 stream = ExtResource("11_ypg6f")
 
 [node name="SoundManager" parent="." instance=ExtResource("13_55500")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("14_s1qmo")]
 
 [connection signal="finished" from="SoundHolder/WinLevel" to="." method="_on_win_level_finished"]
 [connection signal="finished" from="SoundHolder/WinStage" to="." method="_on_win_stage_finished"]

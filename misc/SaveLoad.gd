@@ -2,6 +2,8 @@ extends Resource
 class_name SaveData
 
 @export var current_progress : int = 1
+@export var won : bool = false
+var banner_shown_once : bool = false
 
 const SAVE_FILE_PATH = "user://save.tres"
 
