@@ -6,12 +6,6 @@
 [node name="Credit" type="CanvasLayer"]
 script = ExtResource("1_bt8k5")
 
-[node name="back" type="Button" parent="."]
-offset_right = 48.0
-offset_bottom = 24.0
-theme_override_fonts/font = ExtResource("1_vt0ku")
-text = "back"
-
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
@@ -19,6 +13,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="back" type="Button" parent="Control"]
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 24.0
+theme_override_fonts/font = ExtResource("1_vt0ku")
+text = "back"
 
 [node name="MarginContainer" type="MarginContainer" parent="Control"]
 layout_mode = 1
@@ -70,4 +71,4 @@ theme_override_fonts/font = ExtResource("1_vt0ku")
 text = "pixabay"
 horizontal_alignment = 1
 
-[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Control/back" to="." method="_on_back_pressed"]
