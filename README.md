@@ -7,6 +7,6 @@ Jump on all of them to win.
 Download: [macOS](https://github.com/enchantmenttable/godot-jumping-game/raw/refs/heads/main/game.dmg)
 
 ### Credits
-- Inspiration: Frogfall by Kultisti
+- Inspiration: [Frogfall by Kultisti](https://kultisti.itch.io/frogfall)
 - Art: [dani maccari](https://dani-maccari.itch.io/)
 - Sound fx: pixabay
