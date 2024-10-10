@@ -4,7 +4,7 @@ You're a guy who likes jumping on other creatures' heads.
 
 Jump on all of them to win.
 
-Download: [MacOS](https://github.com/enchantmenttable/godot-jumping-game/raw/refs/heads/main/game.dmg)
+Download: [macOS](https://github.com/enchantmenttable/godot-jumping-game/raw/refs/heads/main/game.dmg)
 
 ### Credits
 - Inspiration: Frogfall by Kultisti
