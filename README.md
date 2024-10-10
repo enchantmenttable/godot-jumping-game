@@ -8,4 +8,5 @@ Download: [macOS](https://github.com/enchantmenttable/godot-jumping-game/raw/ref
 
 ### Credits
 - Inspiration: Frogfall by Kultisti
+- Art: [dani maccari](https://dani-maccari.itch.io/)
 - Sound fx: pixabay
